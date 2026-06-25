@@ -1,0 +1,37 @@
+{
+  "name": "finance",
+  "title": "国际金融日报",
+  "en": "Global Finance Daily",
+  "date": "2026-06-25",
+  "date_range": "2026.06.25（滚动近2日）",
+  "total": 15,
+  "sections": [
+    {
+      "zh": "股市行情",
+      "en": "Stocks",
+      "count": 0
+    },
+    {
+      "zh": "央行与货币政策",
+      "en": "Central Banks",
+      "count": 3
+    },
+    {
+      "zh": "大宗商品",
+      "en": "Commodities",
+      "count": 0
+    },
+    {
+      "zh": "汇率与债市",
+      "en": "FX & Bonds",
+      "count": 0
+    },
+    {
+      "zh": "要闻与机构观点",
+      "en": "Market Watch",
+      "count": 12
+    }
+  ],
+  "gradient": "linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#155e75 100%)",
+  "tag": "GLOBAL FINANCE · DIGEST"
+}

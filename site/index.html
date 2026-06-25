@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日国际要闻 · 仪表盘</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f6f7fb;--ink:#1a1f36;--muted:#6b7280;--line:#e5e7eb}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh}
+.site-hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#3730a3 100%);color:#fff;padding:64px 24px 56px;text-align:center;position:relative;overflow:hidden}
+.site-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 30% 20%,rgba(255,255,255,.10) 0,transparent 40%),radial-gradient(circle at 70% 70%,rgba(255,255,255,.08) 0,transparent 45%);pointer-events:none}
+.site-hero h1{font-size:38px;font-weight:800;letter-spacing:1px;position:relative}
+.site-hero .sub{font-size:16px;opacity:.85;margin-top:14px;position:relative}
+.site-hero .ts{font-size:12px;opacity:.65;margin-top:18px;position:relative}
+.wrap{max-width:1200px;margin:0 auto;padding:40px 20px}
+.entries{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;margin-bottom:48px}
+.entry{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.22s;position:relative}
+.entry:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,27,75,.16);border-color:transparent}
+.entry-hero{background:var(--grad);color:#fff;padding:24px 22px 22px}
+.entry-tag{display:inline-block;font-size:11px;letter-spacing:1.5px;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:14px;margin-bottom:10px}
+.entry-hero h2{font-size:22px;font-weight:800;margin-bottom:4px}
+.entry-en{font-size:12px;opacity:.8;letter-spacing:1px}
+.entry-desc{font-size:13px;opacity:.92;margin-top:14px;line-height:1.55}
+.entry-meta{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+.entry-num b{font-size:30px;font-weight:800;color:#3730a3}
+.entry-num span{font-size:12px;color:var(--muted);margin-left:4px}
+.entry-range{font-size:12px;color:var(--muted);text-align:right;max-width:55%}
+.entry-chips{padding:12px 22px;display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.mini-chip{font-size:11px;color:#4b5563;background:#f1f3f9;padding:3px 9px;border-radius:10px}
+.entry-cta{padding:14px 22px;background:#fafbff;color:#3730a3;font-size:13.5px;font-weight:700;border-top:1px solid var(--line);text-align:center}
+.entry:hover .entry-cta{background:#3730a3;color:#fff}
+.arch{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+.arch h3{font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.arch h3::before{content:"";width:4px;height:18px;background:#3730a3;border-radius:2px}
+.arch-table{width:100%;border-collapse:collapse}
+.arch-table th,.arch-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+.arch-table th{color:var(--muted);font-weight:600;font-size:12px}
+.arch-date{font-weight:700;color:#3730a3;white-space:nowrap}
+.arch-link{color:#3730a3;text-decoration:none;margin-right:6px}
+.arch-link:hover{text-decoration:underline}
+.empty{color:var(--muted);font-size:13px;padding:14px 0}
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px 20px 50px;border-top:1px solid var(--line);margin-top:40px}
+.foot a{color:#3730a3;text-decoration:none}
+@media(max-width:720px){.site-hero h1{font-size:28px}.entries{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-hero">
+  <h1>每日国际要闻 · 仪表盘</h1>
+  <div class="sub">AI 行业 · 国际金融 · 国际要闻 三联仪表盘，每日北京时间早 8 点自动更新</div>
+  <div class="ts">最近更新：2026-06-25 23:08 北京时间</div>
+</header>
+<main class="wrap">
+  <div class="entries">
+
+  <a class="entry" href="ai/index.html" style="--grad:linear-gradient(135deg,#1e1b4b 0%,#3730a3 45%,#6d28d9 100%)">
+    <div class="entry-hero">
+      <span class="entry-tag">AI HOT · DIGEST</span>
+      <h2>AI 行业晨报</h2>
+      <div class="entry-en">AI Industry Daily</div>
+      <p class="entry-desc">近7日 AI 圈模型/产品/行业/论文/观点汇总</p>
+    </div>
+    <div class="entry-meta">
+      <div class="entry-num"><b>114</b><span>条要闻</span></div>
+      <div class="entry-range">2026.06.19 — 06.25</div>
+    </div>
+    <div class="entry-chips"><span class="mini-chip">模型发布/更新 15</span><span class="mini-chip">产品发布/更新 35</span><span class="mini-chip">行业动态 22</span><span class="mini-chip">论文研究 11</span><span class="mini-chip">技巧与观点 31</span></div>
+    <div class="entry-cta">查看本期 →</div>
+  </a>
+  <a class="entry" href="finance/index.html" style="--grad:linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#155e75 100%)">
+    <div class="entry-hero">
+      <span class="entry-tag">GLOBAL FINANCE · DIGEST</span>
+      <h2>国际金融日报</h2>
+      <div class="entry-en">Global Finance Daily</div>
+      <p class="entry-desc">全球股市/央行/商品/汇率债市/机构观点</p>
+    </div>
+    <div class="entry-meta">
+      <div class="entry-num"><b>15</b><span>条要闻</span></div>
+      <div class="entry-range">2026.06.25（滚动近2日）</div>
+    </div>
+    <div class="entry-chips"><span class="mini-chip">股市行情 0</span><span class="mini-chip">央行与货币政策 3</span><span class="mini-chip">大宗商品 0</span><span class="mini-chip">汇率与债市 0</span><span class="mini-chip">要闻与机构观点 12</span></div>
+    <div class="entry-cta">查看本期 →</div>
+  </a>
+  <a class="entry" href="affairs/index.html" style="--grad:linear-gradient(135deg,#7c2d12 0%,#c2410c 45%,#ea580c 100%)">
+    <div class="entry-hero">
+      <span class="entry-tag">WORLD THIS WEEK · DIGEST</span>
+      <h2>国际要闻日报</h2>
+      <div class="entry-en">World This Week Daily</div>
+      <p class="entry-desc">世界杯/科技太空/自然气候/会议展会/商业</p>
+    </div>
+    <div class="entry-meta">
+      <div class="entry-num"><b>34</b><span>条要闻</span></div>
+      <div class="entry-range">2026.06.25（滚动近2日）</div>
+    </div>
+    <div class="entry-chips"><span class="mini-chip">世界杯赛况 5</span><span class="mini-chip">科技与太空 12</span><span class="mini-chip">自然与气候 4</span><span class="mini-chip">国际会议与展会 1</span><span class="mini-chip">商业与产业 12</span></div>
+    <div class="entry-cta">查看本期 →</div>
+  </a>
+  </div>
+  <div class="arch">
+    <h3>历史归档（最近 14 期）</h3>
+
+    <table class="arch-table">
+      <thead><tr><th>日期</th><th>归档内容</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="arch-date">2026-06-25</td>
+        <td class="arch-files"><a class="arch-link" href="archive/2026-06-25/ai.html">AI 行业晨报</a> · <a class="arch-link" href="archive/2026-06-25/finance.html">国际金融日报</a> · <a class="arch-link" href="archive/2026-06-25/affairs.html">国际要闻日报</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<footer class="foot">
+  <p>本站由 GitHub Actions 每日自动抓取数据生成并部署到 Cloudflare Pages。</p>
+  <p style="margin-top:6px">数据源：AI HOT API · RSS 订阅源（东方财富 / 财联社 / NASA / FourFourTwo 等）· 由 WorkBuddy 自动汇总</p>
+</footer>
+</body>
+</html>

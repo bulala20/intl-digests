@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国际要闻日报 · 今日速览</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1a1f36;--muted:#6b7280;--line:#e5e7eb;--soft:#f1f3f9}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.hero{color:#fff;padding:56px 24px 44px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.10) 0,transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.08) 0,transparent 45%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:34px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+.hero-sub{font-size:15px;opacity:.85;margin-bottom:24px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:26px;font-size:14px}
+.hero-meta .pill{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:18px}
+.hero-meta .pill b{font-size:20px;font-weight:800;margin-right:4px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 10px;text-align:center;backdrop-filter:blur(4px)}
+.stat-num{font-size:26px;font-weight:800;color:#fff}
+.stat-num::before{content:"";display:block;width:28px;height:3px;background:var(--accent);border-radius:2px;margin:0 auto 8px}
+.stat-label{font-size:12px;opacity:.9;margin-top:4px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;gap:6px;padding:10px 16px;overflow-x:auto;justify-content:center;flex-wrap:wrap}
+.nav-item{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:7px 14px;border-radius:20px;font-size:13px;color:var(--ink);background:var(--soft);border:1px solid transparent;transition:.18s;white-space:nowrap}
+.nav-item:hover{border-color:var(--accent);color:var(--accent)}
+.nav-item.active{background:var(--accent);color:#fff}
+.nav-en{font-size:11px;opacity:.55}
+.nav-cnt{font-size:11px;background:rgba(0,0,0,.08);padding:1px 7px;border-radius:10px;font-weight:700}
+.nav-item.active .nav-cnt{background:rgba(255,255,255,.25)}
+.wrap{max-width:1200px;margin:0 auto;padding:36px 20px 60px}
+.sec{margin-bottom:48px;scroll-margin-top:64px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-bar{width:6px;height:26px;background:var(--accent);border-radius:3px}
+.sec-head h2{font-size:22px;font-weight:800}
+.sec-en{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+.sec-count{margin-left:auto;font-size:13px;color:var(--accent);font-weight:700;background:var(--soft);padding:4px 12px;border-radius:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:10px;transition:.2s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);opacity:.85}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(30,27,75,.10);border-color:var(--accent)}
+.card-top{display:flex;align-items:center;gap:10px}
+.num{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:24px;padding:0 8px;border-radius:12px;color:#fff;font-size:12px;font-weight:800}
+.date{font-size:12px;color:var(--muted)}
+.title{font-size:15.5px;font-weight:700;line-height:1.45;color:var(--ink)}
+.summary{font-size:13px;color:#4b5563;line-height:1.6;flex:1}
+.card-foot{display:flex;align-items:center;gap:8px;margin-top:4px}
+.chip{font-size:11px;color:#6b7280;background:var(--soft);padding:3px 10px;border-radius:10px;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.link{margin-left:auto;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;padding:4px 10px;border:1px solid var(--accent);border-radius:14px;transition:.15s}
+.link:hover{background:var(--accent);color:#fff}
+.foot{max-width:1200px;margin:0 auto;padding:28px 20px 50px;text-align:center;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+.foot b{color:var(--ink)}
+.foot a{color:#3730a3;text-decoration:none}
+.note{max-width:1200px;margin:0 auto;padding:14px 18px;color:var(--muted);font-size:11.5px;line-height:1.7;background:#fffbeb;border:1px solid #fde68a;border-radius:10px}
+.back-home{display:inline-block;margin:14px 20px 0;padding:6px 14px;background:#fff;border:1px solid var(--line);border-radius:18px;font-size:13px;color:#3730a3;text-decoration:none}
+.back-home:hover{background:#3730a3;color:#fff}
+@media(max-width:720px){.hero{padding:40px 18px 32px}.hero h1{font-size:26px}.stats{grid-template-columns:repeat(5,1fr);gap:6px}.stat{padding:10px 4px}.stat-num{font-size:18px}.stat-label{font-size:10px}.grid{grid-template-columns:1fr}.nav{justify-content:flex-start}}
+
+.hero{background:linear-gradient(135deg,#7c2d12 0%,#c2410c 45%,#ea580c 100%)}</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">WORLD THIS WEEK · DAILY DIGEST</span>
+    <h1>国际要闻日报 · 今日速览</h1>
+    <div class="hero-sub">聚焦非政治类国际事件：世界杯赛况、科技与太空、自然与气候、国际会议与展会、商业与产业。</div>
+    <div class="hero-meta">
+      <span class="pill">更新日期 <b>2026.06.25（滚动近2日）</b></span>
+      <span class="pill">总条数 <b>34</b></span>
+    </div>
+    <div class="stats">
+<div class="stat" style="--accent:#ea580c"><div class="stat-num">5</div><div class="stat-label">世界杯赛况</div></div>
+<div class="stat" style="--accent:#1d4ed8"><div class="stat-num">12</div><div class="stat-label">科技与太空</div></div>
+<div class="stat" style="--accent:#047857"><div class="stat-num">4</div><div class="stat-label">自然与气候</div></div>
+<div class="stat" style="--accent:#7c3aed"><div class="stat-num">1</div><div class="stat-label">国际会议与展会</div></div>
+<div class="stat" style="--accent:#b45309"><div class="stat-num">12</div><div class="stat-label">商业与产业</div></div>
+    </div>
+  </div>
+</header>
+<a class="back-home" href="../index.html">← 返回首页</a>
+<nav class="nav">
+<a class="nav-item" href="#sports" style="--accent:#ea580c"><span class="nav-zh">世界杯赛况</span><span class="nav-en">World Cup</span><span class="nav-cnt">5</span></a>
+<a class="nav-item" href="#science" style="--accent:#1d4ed8"><span class="nav-zh">科技与太空</span><span class="nav-en">Science &amp; Space</span><span class="nav-cnt">12</span></a>
+<a class="nav-item" href="#climate" style="--accent:#047857"><span class="nav-zh">自然与气候</span><span class="nav-en">Climate</span><span class="nav-cnt">4</span></a>
+<a class="nav-item" href="#forums" style="--accent:#7c3aed"><span class="nav-zh">国际会议与展会</span><span class="nav-en">Forums &amp; Expos</span><span class="nav-cnt">1</span></a>
+<a class="nav-item" href="#business" style="--accent:#b45309"><span class="nav-zh">商业与产业</span><span class="nav-en">Business</span><span class="nav-cnt">12</span></a>
+</nav>
+<main class="wrap">
+
+  <section id="sports" class="sec">
+    <div class="sec-head" style="--accent:#ea580c">
+      <span class="sec-bar"></span>
+      <h2>世界杯赛况<span class="sec-en">/ World Cup</span></h2>
+      <span class="sec-count">5 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#ea580c">
+      <div class="card-top">
+        <span class="num" style="background:#ea580c">1</span>
+        <span class="date">6月25日 周四 21:38</span>
+      </div>
+      <h3 class="title">The games that show the flaws in a 48-team World Cup</h3>
+      <p class="summary">Two matches in the final round of group games present the ch…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/sport/football/articles/cgev2vdzjvvo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#ea580c">
+      <div class="card-top">
+        <span class="num" style="background:#ea580c">2</span>
+        <span class="date">6月25日 周四 19:39</span>
+      </div>
+      <h3 class="title">Stay or go home? Tartan Army in limbo as Scotland awaits fate</h3>
+      <p class="summary">BBC Scotland examines options for the Tartan Army in Miami a…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/sport/football/articles/cjdg05l2jngo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#ea580c">
+      <div class="card-top">
+        <span class="num" style="background:#ea580c">3</span>
+        <span class="date">6月25日 周四 18:53</span>
+      </div>
+      <h3 class="title">How brands banned from the World Cup became the story</h3>
+      <p class="summary">When we try to suppress something, we often make it more vis…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/sport/football/articles/cdejrjpe8w3o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#ea580c">
+      <div class="card-top">
+        <span class="num" style="background:#ea580c">4</span>
+        <span class="date">6月25日 周四 14:30</span>
+      </div>
+      <h3 class="title">Best World Cup stadium? BBC Sport experts have their say</h3>
+      <p class="summary">BBC Sport reporters have their say on the best stadium exper…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/sport/football/articles/c3vy3grvpg6o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#ea580c">
+      <div class="card-top">
+        <span class="num" style="background:#ea580c">5</span>
+        <span class="date">6月25日 周四 19:39</span>
+      </div>
+      <h3 class="title">Stay or go home? Tartan Army in limbo as Scotland await fate</h3>
+      <p class="summary">BBC Scotland examines options for the Tartan Army in Miami a…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/sport/football/articles/cjdg05l2jngo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="science" class="sec">
+    <div class="sec-head" style="--accent:#1d4ed8">
+      <span class="sec-bar"></span>
+      <h2>科技与太空<span class="sec-en">/ Science &amp; Space</span></h2>
+      <span class="sec-count">12 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">6</span>
+        <span class="date">6月25日 周四 09:04</span>
+      </div>
+      <h3 class="title">NASA’s TESS Mission Reveals the “Puffiest” Planets Ever Found</h3>
+      <p class="summary">NASA has revealed two new “super-puff” planets, giant worlds…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://science.nasa.gov/missions/tess/nasas-tess-mission-reveals-the-puffiest-planets-ever-found/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">7</span>
+        <span class="date">6月25日 周四 05:29</span>
+      </div>
+      <h3 class="title">NASA at the Ion: Orion Lessons from Artemis II Shape NASA’s Moon to Mars Path</h3>
+      <p class="summary">Seven&amp;#160;weeks&amp;#160;after&amp;#160;the Orion spacecraft&amp;#160;r…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://www.nasa.gov/centers-and-facilities/johnson/nasa-at-the-ion-orion-lessons-from-artemis-ii-shape-nasas-moon-to-mars-path/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">8</span>
+        <span class="date">6月25日 周四 05:17</span>
+      </div>
+      <h3 class="title">La NASA compartirá los últimos avances del programa Base Lunar</h3>
+      <p class="summary">Lea esta nota de prensa en inglés aquí. El administrador de …</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://www.nasa.gov/news-release/la-nasa-compartira-los-ultimos-avances-del-programa-base-lunar/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">9</span>
+        <span class="date">6月25日 周四 03:42</span>
+      </div>
+      <h3 class="title">Roman Telescope Comes to Kennedy</h3>
+      <p class="summary">In this June 21, 2026, photo, NASA’s Nancy Grace Roman Space…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://www.nasa.gov/image-article/roman-telescope-comes-to-kennedy/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">10</span>
+        <span class="date">6月25日 周四 02:55</span>
+      </div>
+      <h3 class="title">NASA’s HiRISE Captures Perseverance Marking a Milestone on Mars</h3>
+      <p class="summary">Description NASA’s Perseverance rover appears as a green spe…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://science.nasa.gov/photojournal/nasas-hirise-captures-perseverance-marking-a-milestone-on-mars/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">11</span>
+        <span class="date">6月25日 周四 02:41</span>
+      </div>
+      <h3 class="title">Euclid View of Milky Way Heart Previews Core Survey by NASA’s Roman</h3>
+      <p class="summary">A new look at the heart of our Milky Way galaxy by Euclid, a…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://www.nasa.gov/missions/roman-space-telescope/euclid-view-of-milky-way-heart-previews-core-survey-by-nasas-roman/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">12</span>
+        <span class="date">6月24日 周三 21:37</span>
+      </div>
+      <h3 class="title">Career Spotlight: Electrician (Ages 14-18)</h3>
+      <p class="summary">What does an electrician do? Electricity powers the world, a…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://www.nasa.gov/learning-resources/career-spotlight-electrician-ages-14-18/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">13</span>
+        <span class="date">6月24日 周三 12:34</span>
+      </div>
+      <h3 class="title">Curiosity Blog, Sols 4927–4933: Let’s Drive to That Smooth Area</h3>
+      <p class="summary">By Susanne P. Schwenzer, Professor of Planetary Mineralogy a…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://science.nasa.gov/blog/curiosity-blog-sols-4927-4933-lets-drive-to-that-smooth-area/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">14</span>
+        <span class="date">6月25日 周四 21:00</span>
+      </div>
+      <h3 class="title">Europe faces the heat</h3>
+      <p class="summary">Video: 00:02:07 Europe is facing an intense heatwave, with r…</p>
+      <div class="card-foot">
+        <span class="chip" title="ESA Space News">ESA Space News</span>
+        <a class="link" href="https://www.esa.int/ESA_Multimedia/Videos/2026/06/Europe_faces_the_heat" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">15</span>
+        <span class="date">6月25日 周四 16:00</span>
+      </div>
+      <h3 class="title">Smile reaches science orbit</h3>
+      <p class="summary">Image: Smile reaches science orbit</p>
+      <div class="card-foot">
+        <span class="chip" title="ESA Space News">ESA Space News</span>
+        <a class="link" href="https://www.esa.int/ESA_Multimedia/Images/2026/06/Smile_reaches_science_orbit" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">16</span>
+        <span class="date">6月25日 周四 15:00</span>
+      </div>
+      <h3 class="title">A first: EarthCARE cloud data sharpen weather forecasts</h3>
+      <p class="summary">The European Space Agency’s EarthCARE satellite was develope…</p>
+      <div class="card-foot">
+        <span class="chip" title="ESA Space News">ESA Space News</span>
+        <a class="link" href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/A_first_EarthCARE_cloud_data_sharpen_weather_forecasts" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#1d4ed8">
+      <div class="card-top">
+        <span class="num" style="background:#1d4ed8">17</span>
+        <span class="date">6月25日 周四 03:00</span>
+      </div>
+      <h3 class="title">Possible signs of ancient life on Mars are rich in complex carbon</h3>
+      <p class="summary">An instrument on the Perseverance rover has identified large…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531752-possible-signs-of-ancient-life-on-mars-are-rich-in-complex-carbon/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="climate" class="sec">
+    <div class="sec-head" style="--accent:#047857">
+      <span class="sec-bar"></span>
+      <h2>自然与气候<span class="sec-en">/ Climate</span></h2>
+      <span class="sec-count">4 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#047857">
+      <div class="card-top">
+        <span class="num" style="background:#047857">18</span>
+        <span class="date">6月24日 周三 01:50</span>
+      </div>
+      <h3 class="title">You should turn off fans when it&#x27;s too hot – but how hot is too hot?</h3>
+      <p class="summary">Fans can make you hotter rather than cooler, but the tempera…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531606-you-should-turn-off-fans-when-its-too-hot-but-how-hot-is-too-hot/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#047857">
+      <div class="card-top">
+        <span class="num" style="background:#047857">19</span>
+        <span class="date">6月24日 周三 10:26</span>
+      </div>
+      <h3 class="title">Hundreds of schools plan closures ahead of red heat alerts</h3>
+      <p class="summary">The temperature topped 34.6 C in Wisley, England, on Tuesday…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC Science &amp; Environment">BBC Science &amp; Environment</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cwyl940y94xo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#047857">
+      <div class="card-top">
+        <span class="num" style="background:#047857">20</span>
+        <span class="date">6月25日 周四 23:04</span>
+      </div>
+      <h3 class="title">&#x27;I thought I was going to die&#x27; - people describe earthquake panic</h3>
+      <p class="summary">Buildings were flattened in the capital Caracas, where voice…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC News">BBC News</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/czj8vjvmz38o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#047857">
+      <div class="card-top">
+        <span class="num" style="background:#047857">21</span>
+        <span class="date">6月25日 周四 23:04</span>
+      </div>
+      <h3 class="title">&#x27;I thought I was going to die&#x27; - Venezuelans describe earthquake panic</h3>
+      <p class="summary">Buildings were flattened in the capital Caracas, where voice…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/czj8vjvmz38o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="forums" class="sec">
+    <div class="sec-head" style="--accent:#7c3aed">
+      <span class="sec-bar"></span>
+      <h2>国际会议与展会<span class="sec-en">/ Forums &amp; Expos</span></h2>
+      <span class="sec-count">1 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#7c3aed">
+      <div class="card-top">
+        <span class="num" style="background:#7c3aed">22</span>
+        <span class="date">6月24日 周三 23:37</span>
+      </div>
+      <h3 class="title">Mombasa: Key outcomes from the Our Ocean Conference in Kenya</h3>
+      <p class="summary">A major ocean conference has ended in Mombasa, Kenya, with j…</p>
+      <div class="card-foot">
+        <span class="chip" title="Carbon Brief">Carbon Brief</span>
+        <a class="link" href="https://www.carbonbrief.org/mombasa-key-outcomes-from-the-our-ocean-conference-in-kenya/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="business" class="sec">
+    <div class="sec-head" style="--accent:#b45309">
+      <span class="sec-bar"></span>
+      <h2>商业与产业<span class="sec-en">/ Business</span></h2>
+      <span class="sec-count">12 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">23</span>
+        <span class="date">6月25日 周四 12:00</span>
+      </div>
+      <h3 class="title">A Turquoise Tint for the Black Sea</h3>
+      <p class="summary">Phytoplankton added a milky blue hue to the waters of the Bl…</p>
+      <div class="card-foot">
+        <span class="chip" title="NASA Breaking News">NASA Breaking News</span>
+        <a class="link" href="https://science.nasa.gov/earth/earth-observatory/a-turquoise-tint-for-the-black-sea/" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">24</span>
+        <span class="date">6月25日 周四 16:16</span>
+      </div>
+      <h3 class="title">European Flight Ticket Initiative opens to more launch service providers</h3>
+      <p class="summary"></p>
+      <div class="card-foot">
+        <span class="chip" title="ESA Space News">ESA Space News</span>
+        <a class="link" href="https://www.esa.int/Enabling_Support/Space_Transportation/Boost/European_Flight_Ticket_Initiative_opens_to_more_launch_service_providers" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">25</span>
+        <span class="date">6月24日 周三 18:00</span>
+      </div>
+      <h3 class="title">ESA’s Euclid captures the Milky Way’s crowded heart</h3>
+      <p class="summary"></p>
+      <div class="card-foot">
+        <span class="chip" title="ESA Space News">ESA Space News</span>
+        <a class="link" href="https://www.esa.int/Science_Exploration/Space_Science/Euclid/ESA_s_Euclid_captures_the_Milky_Way_s_crowded_heart" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">26</span>
+        <span class="date">6月25日 周四 22:51</span>
+      </div>
+      <h3 class="title">Where, when and how to watch the 2026 solar eclipse</h3>
+      <p class="summary">This August a total solar eclipse is set to be visible acros…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531639-where-when-and-how-to-watch-the-2026-solar-eclipse/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">27</span>
+        <span class="date">6月25日 周四 21:29</span>
+      </div>
+      <h3 class="title">If you aren&#x27;t terrified by this heatwave, you should be</h3>
+      <p class="summary">The extreme heat currently being felt in Europe isn’t the ne…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531853-if-you-arent-terrified-by-this-heatwave-you-should-be/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">28</span>
+        <span class="date">6月25日 周四 19:00</span>
+      </div>
+      <h3 class="title">Record-breaking IBM chip uses trick to cram in 100 billion transistors</h3>
+      <p class="summary">IBM&#x27;s latest chip packs in twice as many transistors as the …</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2530687-record-breaking-ibm-chip-uses-trick-to-cram-in-100-billion-transistors/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">29</span>
+        <span class="date">6月25日 周四 18:21</span>
+      </div>
+      <h3 class="title">Phages could enable us to hijack vaccine immunity to kill cancer cells</h3>
+      <p class="summary">Phages, viruses that infect bacteria, could be genetically m…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531700-phages-could-enable-us-to-hijack-vaccine-immunity-to-kill-cancer-cells/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">30</span>
+        <span class="date">6月25日 周四 00:00</span>
+      </div>
+      <h3 class="title">All known Homo naledi skeletons seem to be female</h3>
+      <p class="summary">An analysis of tooth proteins suggests all 23 Homo naledi in…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531654-all-known-homo-naledi-skeletons-seem-to-be-female/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">31</span>
+        <span class="date">6月25日 周四 00:00</span>
+      </div>
+      <h3 class="title">Some of the last Neanderthals were surprisingly genetically diverse</h3>
+      <p class="summary">Genetic analysis of Neanderthals in north-western Europe rev…</p>
+      <div class="card-foot">
+        <span class="chip" title="New Scientist">New Scientist</span>
+        <a class="link" href="https://www.newscientist.com/article/2531732-some-of-the-last-neanderthals-were-surprisingly-genetically-diverse/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">32</span>
+        <span class="date">6月25日 周四 22:57</span>
+      </div>
+      <h3 class="title">Calls for government action on chemical pollution</h3>
+      <p class="summary">Cherwell District Council leader urges forever chemical poll…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC Science &amp; Environment">BBC Science &amp; Environment</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cjegkw20peno?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">33</span>
+        <span class="date">6月25日 周四 20:37</span>
+      </div>
+      <h3 class="title">First red squirrel kits born at sanctuary</h3>
+      <p class="summary">Sanctuary staff say the litter will help boost population nu…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC Science &amp; Environment">BBC Science &amp; Environment</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cly0xg8ezyzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b45309">
+      <div class="card-top">
+        <span class="num" style="background:#b45309">34</span>
+        <span class="date">6月24日 周三 13:17</span>
+      </div>
+      <h3 class="title">Survey finds &#x27;significantly more&#x27; ancient woodland</h3>
+      <p class="summary">A wildlife trust says there are 50% more sites in Hertfordsh…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC Science &amp; Environment">BBC Science &amp; Environment</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/c7vyn013j79o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+<div class="note">📌 本报告聚焦体育、科技、自然、会议、商业等非政治类国际事件；时间均为北京时间。</div>
+</main>
+<footer class="foot">
+  <p>本期共收录 <b>34</b> 条要闻，覆盖 2026.06.25（滚动近2日）。</p>
+  <p style="margin-top:6px">数据来源：FourFourTwo / FIFA / NASA / Space.com / Nature / 新华社 / 光明网 / 世界经济论坛 / 路透 等 RSS 源 · 时间均为北京时间 · 由 WorkBuddy 自动汇总生成</p>
+</footer>
+<script>
+const navItems=document.querySelectorAll('.nav-item');const map=new Map();
+navItems.forEach(n=>map.set(n.getAttribute('href').slice(1),n));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){navItems.forEach(n=>n.classList.remove('active'));const t=map.get(x.target.id);if(t)t.classList.add('active');}})},{rootMargin:'-80px 0px -70% 0px',threshold:0});
+document.querySelectorAll('.sec').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
