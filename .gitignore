@@ -24,3 +24,10 @@ desktop.ini
 
 # Local dev artifacts (site/ is generated and tracked for deployment)
 # Keep site/ in git so Cloudflare can deploy from any commit
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
