@@ -47,6 +47,10 @@ jobs:
         working-directory: scripts
         run: python fetch_affairs.py
 
+      - name: Fetch Politics dashboard
+        working-directory: scripts
+        run: python fetch_politics.py
+
       - name: Build index
         working-directory: scripts
         run: python build_index.py

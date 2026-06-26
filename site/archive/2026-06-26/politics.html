@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国际政治日报 · 今日速览</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1a1f36;--muted:#6b7280;--line:#e5e7eb;--soft:#f1f3f9}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+.hero{color:#fff;padding:56px 24px 44px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.10) 0,transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.08) 0,transparent 45%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-block;font-size:12px;letter-spacing:2px;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:34px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+.hero-sub{font-size:15px;opacity:.85;margin-bottom:24px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:26px;font-size:14px}
+.hero-meta .pill{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:18px}
+.hero-meta .pill b{font-size:20px;font-weight:800;margin-right:4px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 10px;text-align:center;backdrop-filter:blur(4px)}
+.stat-num{font-size:26px;font-weight:800;color:#fff}
+.stat-num::before{content:"";display:block;width:28px;height:3px;background:var(--accent);border-radius:2px;margin:0 auto 8px}
+.stat-label{font-size:12px;opacity:.9;margin-top:4px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;gap:6px;padding:10px 16px;overflow-x:auto;justify-content:center;flex-wrap:wrap}
+.nav-item{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:7px 14px;border-radius:20px;font-size:13px;color:var(--ink);background:var(--soft);border:1px solid transparent;transition:.18s;white-space:nowrap}
+.nav-item:hover{border-color:var(--accent);color:var(--accent)}
+.nav-item.active{background:var(--accent);color:#fff}
+.nav-en{font-size:11px;opacity:.55}
+.nav-cnt{font-size:11px;background:rgba(0,0,0,.08);padding:1px 7px;border-radius:10px;font-weight:700}
+.nav-item.active .nav-cnt{background:rgba(255,255,255,.25)}
+.wrap{max-width:1200px;margin:0 auto;padding:36px 20px 60px}
+.sec{margin-bottom:48px;scroll-margin-top:64px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-bar{width:6px;height:26px;background:var(--accent);border-radius:3px}
+.sec-head h2{font-size:22px;font-weight:800}
+.sec-en{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+.sec-count{margin-left:auto;font-size:13px;color:var(--accent);font-weight:700;background:var(--soft);padding:4px 12px;border-radius:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:10px;transition:.2s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);opacity:.85}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(30,27,75,.10);border-color:var(--accent)}
+.card-top{display:flex;align-items:center;gap:10px}
+.num{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:24px;padding:0 8px;border-radius:12px;color:#fff;font-size:12px;font-weight:800}
+.date{font-size:12px;color:var(--muted)}
+.title{font-size:15.5px;font-weight:700;line-height:1.45;color:var(--ink)}
+.summary{font-size:13px;color:#4b5563;line-height:1.6;flex:1}
+.card-foot{display:flex;align-items:center;gap:8px;margin-top:4px}
+.chip{font-size:11px;color:#6b7280;background:var(--soft);padding:3px 10px;border-radius:10px;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.link{margin-left:auto;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;padding:4px 10px;border:1px solid var(--accent);border-radius:14px;transition:.15s}
+.link:hover{background:var(--accent);color:#fff}
+.foot{max-width:1200px;margin:0 auto;padding:28px 20px 50px;text-align:center;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line)}
+.foot b{color:var(--ink)}
+.foot a{color:#3730a3;text-decoration:none}
+.note{max-width:1200px;margin:0 auto;padding:14px 18px;color:var(--muted);font-size:11.5px;line-height:1.7;background:#fffbeb;border:1px solid #fde68a;border-radius:10px}
+.back-home{display:inline-block;margin:14px 20px 0;padding:6px 14px;background:#fff;border:1px solid var(--line);border-radius:18px;font-size:13px;color:#3730a3;text-decoration:none}
+.back-home:hover{background:#3730a3;color:#fff}
+@media(max-width:720px){.hero{padding:40px 18px 32px}.hero h1{font-size:26px}.stats{grid-template-columns:repeat(5,1fr);gap:6px}.stat{padding:10px 4px}.stat-num{font-size:18px}.stat-label{font-size:10px}.grid{grid-template-columns:1fr}.nav{justify-content:flex-start}}
+
+.hero{background:linear-gradient(135deg,#111827 0%,#7f1d1d 48%,#b45309 100%)}</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">GLOBAL POLITICS · DAILY DIGEST</span>
+    <h1>国际政治日报 · 今日速览</h1>
+    <div class="hero-sub">聚焦国际政治动态：外交关系、多边机制、选举政局、冲突安全与政策治理。</div>
+    <div class="hero-meta">
+      <span class="pill">更新日期 <b>2026.06.26（滚动近2日）</b></span>
+      <span class="pill">总条数 <b>98</b></span>
+    </div>
+    <div class="stats">
+<div class="stat" style="--accent:#b91c1c"><div class="stat-num">8</div><div class="stat-label">外交与双边关系</div></div>
+<div class="stat" style="--accent:#7c2d12"><div class="stat-num">18</div><div class="stat-label">国际组织与多边机制</div></div>
+<div class="stat" style="--accent:#4338ca"><div class="stat-num">28</div><div class="stat-label">选举与政局</div></div>
+<div class="stat" style="--accent:#be123c"><div class="stat-num">28</div><div class="stat-label">冲突与安全</div></div>
+<div class="stat" style="--accent:#0f766e"><div class="stat-num">16</div><div class="stat-label">政策与治理</div></div>
+    </div>
+  </div>
+</header>
+<a class="back-home" href="../index.html">← 返回首页</a>
+<nav class="nav">
+<a class="nav-item" href="#diplomacy" style="--accent:#b91c1c"><span class="nav-zh">外交与双边关系</span><span class="nav-en">Diplomacy</span><span class="nav-cnt">8</span></a>
+<a class="nav-item" href="#multilateral" style="--accent:#7c2d12"><span class="nav-zh">国际组织与多边机制</span><span class="nav-en">Multilateral</span><span class="nav-cnt">18</span></a>
+<a class="nav-item" href="#elections" style="--accent:#4338ca"><span class="nav-zh">选举与政局</span><span class="nav-en">Elections</span><span class="nav-cnt">28</span></a>
+<a class="nav-item" href="#security" style="--accent:#be123c"><span class="nav-zh">冲突与安全</span><span class="nav-en">Security</span><span class="nav-cnt">28</span></a>
+<a class="nav-item" href="#policy" style="--accent:#0f766e"><span class="nav-zh">政策与治理</span><span class="nav-en">Governance</span><span class="nav-cnt">16</span></a>
+</nav>
+<main class="wrap">
+
+  <section id="diplomacy" class="sec">
+    <div class="sec-head" style="--accent:#b91c1c">
+      <span class="sec-bar"></span>
+      <h2>外交与双边关系<span class="sec-en">/ Diplomacy</span></h2>
+      <span class="sec-count">8 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">1</span>
+        <span class="date">6月26日 周五 16:00</span>
+      </div>
+      <h3 class="title">Mexico’s new UK ambassador from ‘party of poor’ has 10 houses and £1m of jewellery</h3>
+      <p class="summary">Alejandro Gertz Manero’s cars and properties contrast starkl…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/2026/jun/26/luxury-assets-mexico-new-ambassador-uk-alejandro-gertz-manero" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">2</span>
+        <span class="date">6月26日 周五 19:32</span>
+      </div>
+      <h3 class="title">信任如树，友谊如花 中柬铁杆情谊成色十足</h3>
+      <p class="summary">中新网6月26日电 应中国共产党邀请，柬埔寨人民党主席、参议院主席洪森6月25日至27日对中国进行正式友好访问。</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10648009.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">3</span>
+        <span class="date">6月26日 周五 11:10</span>
+      </div>
+      <h3 class="title">加拿大总理称应重开在伊朗和委内瑞拉的使馆</h3>
+      <p class="summary">中新社北京6月26日电 渥太华消息：加拿大总理马克·卡尼当地时间25日表示，加拿大应重开被关闭的驻伊朗和委内瑞拉使馆。</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647558.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">4</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">外交部：中国愿继续与各方一道推动共建清洁、美丽、可持续的世界</h3>
+      <p class="summary">新华社北京6月5日电（记者袁睿）6月5日是世界环境日。外交部发言人林剑5日表示，中国一直是绿色发展的坚定行动派，也是全球…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494859.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">5</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">外交部回应美方宣布将对哈佛大学国际学生实行签证限制</h3>
+      <p class="summary">新华社北京6月5日电（记者袁睿、王慧慧）针对美国日前宣布将对哈佛大学国际学生实行签证限制，外交部发言人林剑5日在例行记者…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494811.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">6</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">法国巴黎西岱大学孔院勇夺第24届“汉语桥”世界大学生中文比赛法国冠军</h3>
+      <p class="summary">人民网巴黎6月4日电 （记者何蒨） 5月30日至31日，由中国驻法大使馆主办、欧洲时报文化传媒集团承办的第24届“汉语桥…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494621.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">7</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">美致信“提醒”贸易伙伴加紧关税谈判</h3>
+      <p class="summary">新华社洛杉矶6月3日电（记者黄恒）美国白宫新闻秘书卡罗琳·莱维特3日证实，美政府已向贸易伙伴发出信函，催促加快贸易谈判进…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494419.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#b91c1c">
+      <div class="card-top">
+        <span class="num" style="background:#b91c1c">8</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">伊朗最高领袖：完全放弃铀浓缩“百分之百”违背伊朗利益</h3>
+      <p class="summary">新华社德黑兰6月4日电（记者陈霄）伊朗最高领袖哈梅内伊4日说，美国要求伊朗完全放弃铀浓缩的主要目的是阻碍伊朗发展，并迫使…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494418.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="multilateral" class="sec">
+    <div class="sec-head" style="--accent:#7c2d12">
+      <span class="sec-bar"></span>
+      <h2>国际组织与多边机制<span class="sec-en">/ Multilateral</span></h2>
+      <span class="sec-count">18 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">9</span>
+        <span class="date">6月26日 周五 19:45</span>
+      </div>
+      <h3 class="title">Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say</h3>
+      <p class="summary">Kremlin may attempt to test Nato cohesion as Russia comes un…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/2026/jun/26/russia-provocation-baltic-states-poland" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">10</span>
+        <span class="date">6月26日 周五 12:41</span>
+      </div>
+      <h3 class="title">UN agency pauses ship evacuations through strait of Hormuz after vessel struck</h3>
+      <p class="summary">International Maritime Organization says safety guarantees m…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/2026/jun/25/un-pauses-ship-evacuations-through-strait-of-hormuz-after-vessel-attack" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">11</span>
+        <span class="date">6月25日 周四 20:00</span>
+      </div>
+      <h3 class="title">Security Council extends critical stabilisation force in Syria</h3>
+      <p class="summary">The 15-member Security Council unanimously adopted a draft r…</p>
+      <div class="card-foot">
+        <span class="chip" title="UN News - Global perspective Human stories">UN News - Global perspective Human stories</span>
+        <a class="link" href="https://news.un.org/feed/view/en/story/2026/06/1167813" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">12</span>
+        <span class="date">6月25日 周四 20:00</span>
+      </div>
+      <h3 class="title">From Lebanon to the Strait of Hormuz, a Middle East hanging on fragile peace talks</h3>
+      <p class="summary">Since Tuesday, United Nations peacekeepers have detected no …</p>
+      <div class="card-foot">
+        <span class="chip" title="UN News - Global perspective Human stories">UN News - Global perspective Human stories</span>
+        <a class="link" href="https://news.un.org/feed/view/en/story/2026/06/1167811" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">13</span>
+        <span class="date">6月25日 周四 20:00</span>
+      </div>
+      <h3 class="title">UN envoy warns of growing risks in El Obeid as Sudan conflict drags on</h3>
+      <p class="summary">The United Nations Secretary-General’s Personal Envoy for Su…</p>
+      <div class="card-foot">
+        <span class="chip" title="UN News - Global perspective Human stories">UN News - Global perspective Human stories</span>
+        <a class="link" href="https://news.un.org/feed/view/en/story/2026/06/1167810" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">14</span>
+        <span class="date">6月25日 周四 16:44</span>
+      </div>
+      <h3 class="title">Trump airs grievances with NATO chief over alliance&#x27;s lack of Iran war support</h3>
+      <p class="summary">President Trump met with NATO Secretary General Mark Rutte W…</p>
+      <div class="card-foot">
+        <span class="chip" title="NPR World">NPR World</span>
+        <a class="link" href="https://www.npr.org/2026/06/25/nx-s1-5869806/trump-airs-grievances-with-nato-chief-over-alliances-lack-of-iran-war-support" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">15</span>
+        <span class="date">6月25日 周四 16:44</span>
+      </div>
+      <h3 class="title">Europe is &#x27;reading the tea leaves&#x27; on Trump&#x27;s Ukraine policy, says ex-NATO envoy</h3>
+      <p class="summary">NPR&#x27;s Michel Martin speaks with Kurt Volker, former U.S. amb…</p>
+      <div class="card-foot">
+        <span class="chip" title="NPR World">NPR World</span>
+        <a class="link" href="https://www.npr.org/2026/06/25/nx-s1-5869554/trump-nato-ukraine-kurt-volker" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">16</span>
+        <span class="date">Friday, June 5, 2026 - 10:38</span>
+      </div>
+      <h3 class="title">A Budget for Global Turmoil: Peace, Conflict and the EU’s Funding Plans</h3>
+      <p class="summary">The European Union’s next seven-year budget could put spendi…</p>
+      <div class="card-foot">
+        <span class="chip" title="Crisis Group">Crisis Group</span>
+        <a class="link" href="https://www.crisisgroup.org/qna/europe-european-union/budget-global-turmoil-peace-conflict-and-eus-funding-plans" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">17</span>
+        <span class="date">6月26日 周五 18:37</span>
+      </div>
+      <h3 class="title">一图读懂：签署81年，联合国宪章这一基石为何不可动摇？</h3>
+      <p class="summary">中新网6月26日电 1945年6月26日，来自50个国家的代表在美国旧金山签署了《联合国宪章》，同年10月24日，宪章正…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647978.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">18</span>
+        <span class="date">6月26日 周五 10:53</span>
+      </div>
+      <h3 class="title">中方代表在人权理事会作共同发言 揭批以人权为借口滥施关税行径</h3>
+      <p class="summary">中国常驻联合国日内瓦办事处和瑞士其他国际组织代表贾桂德25日在人权理事会第62届会议代表近20国作共同发言，揭批以“强迫…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647630.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">19</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">2025第九届中国（印尼）出口品牌联展暨印尼雅加达国际工业联展开幕</h3>
+      <p class="summary">人民网雅加达6月4日电（记者李培松）6月4日，2025第九届中国（印尼）出口品牌联展暨印尼雅加达国际工业联展（简称“印尼…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494292.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">20</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">中国成都至塞舌尔马埃岛季节性直航将于7月开通</h3>
+      <p class="summary">人民网内罗毕6月4日电 （记者黄炜鑫）维多利亚消息：四川航空公司将于今年7月开通中国成都至塞舌尔马埃岛季节性直航。 据悉…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494387.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">21</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">美国再次在联合国安理会否决加沙停火决议草案</h3>
+      <p class="summary">新华社联合国6月4日电（记者尚绪谦）美国4日再次在联合国安理会否决有关要求在巴勒斯坦加沙地带立即停火的决议草案。 安理会…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494451.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">22</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">国际观察｜翻番的钢铝关税 倍增的反制和反噬</h3>
+      <p class="summary">新华社北京6月4日电 题：翻番的钢铝关税 倍增的反制和反噬 新华社记者俞懋峰 美国白宫3日发布公告，以应对所谓“国家安全…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494442.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">23</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">欧盟官员：美国上调钢铝关税无助于美欧谈判</h3>
+      <p class="summary">新华社布鲁塞尔6月4日电（记者康逸 张兆卿）欧盟委员会负责贸易和经济安全等事务的委员马罗什·谢夫乔维奇4日在法国巴黎表示…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494437.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">24</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">文明对话国际日庆祝活动在布加勒斯特举办</h3>
+      <p class="summary">人民网华沙6月4日电（记者禹丽敏）在文明对话国际日即将到来之际，题为“对话·知音——用音乐与世界对话”的中国古筝音乐会日…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0604/c1002-40493979.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">25</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">比利时侨界举办纪念抗战胜利和台湾光复80周年座谈会</h3>
+      <p class="summary">人民网布鲁塞尔6月4日电 （记者牛瑞飞）为铭记历史、弘扬抗战精神、坚定统一信念，纪念中国人民抗日战争暨世界反法西斯战争胜…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0604/c1002-40493972.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#7c2d12">
+      <div class="card-top">
+        <span class="num" style="background:#7c2d12">26</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">高端访谈丨阿中愿携手维护多边贸易体系和发展中国家利益——访阿拉伯议会议长亚马希</h3>
+      <p class="summary">新华社开罗6月3日电 高端访谈｜阿中愿携手维护多边贸易体系和发展中国家利益——访阿拉伯议会议长亚马希 新华社记者董修竹 …</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494416.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="elections" class="sec">
+    <div class="sec-head" style="--accent:#4338ca">
+      <span class="sec-bar"></span>
+      <h2>选举与政局<span class="sec-en">/ Elections</span></h2>
+      <span class="sec-count">28 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">27</span>
+        <span class="date">6月26日 周五 19:53</span>
+      </div>
+      <h3 class="title">Venezuela earthquakes: international rescue teams arrive, as 235 confirmed dead so far – latest updates</h3>
+      <p class="summary">‘We hope to rescue as many living people as possible’, says …</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/live/2026/jun/26/venezuela-earthquakes-search-survivors-death-toll-rodriguez-rubio-latest-news-updates" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">28</span>
+        <span class="date">6月26日 周五 19:10</span>
+      </div>
+      <h3 class="title">Vandalism, taunts and hijabs torn off: Muslim leaders in UK say hate crime hitting new levels</h3>
+      <p class="summary">Ministers accused of being more hesitant to respond as Refor…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/news/2026/jun/26/muslim-leaders-uk-hate-crime-islamophobia" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">29</span>
+        <span class="date">6月26日 周五 19:00</span>
+      </div>
+      <h3 class="title">Spain bucks European trend with mass amnesty of migrants</h3>
+      <p class="summary">A mass amnesty of undocumented immigrants is currently under…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/tv-shows/reporters/20260626-spain-bucks-european-trend-with-mass-amnesty-of-migrants" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">30</span>
+        <span class="date">6月26日 周五 18:25</span>
+      </div>
+      <h3 class="title">TotalEnergies ordered to account for client emissions in landmark climate ruling</h3>
+      <p class="summary">In a landmark ruling, a French court has ordered energy gian…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/tv-shows/a-propos/20260626-totalenergies-ordered-to-account-for-client-emissions-in-landmark-climate-ruling" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">31</span>
+        <span class="date">6月26日 周五 18:00</span>
+      </div>
+      <h3 class="title">Outrage as woman jailed for three years after criticising Somali government online</h3>
+      <p class="summary">Sentencing of 27-year-old Sadia Moalim Ali condemned by form…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/global-development/2026/jun/26/woman-sadia-moalim-ali-three-year-jail-sentence-somalia-online-comments-governement" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">32</span>
+        <span class="date">6月26日 周五 17:42</span>
+      </div>
+      <h3 class="title">Housing board votes to freeze New York rents in victory for Mamdani</h3>
+      <p class="summary">The decision was welcomed by many tenants - but landlords fe…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cn947pxxz4yo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">33</span>
+        <span class="date">6月26日 周五 16:19</span>
+      </div>
+      <h3 class="title">Park to protect 12,000 koalas to go ahead via contentious carbon credit deal by Albanese government</h3>
+      <p class="summary">Minns government waited on federal approval of carbon credit…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/australia-news/2026/jun/26/great-koala-national-park-nsw-carbon-credit-deal" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">34</span>
+        <span class="date">6月26日 周五 15:56</span>
+      </div>
+      <h3 class="title">The bloodless coup: How Burnham came out top</h3>
+      <p class="summary">It could have been a messy transition, but the ease with whi…</p>
+      <div class="card-foot">
+        <span class="chip" title="Politico Europe">Politico Europe</span>
+        <a class="link" href="https://www.politico.eu/podcast/politics-at-sam-and-annes/the-bloodless-coup-how-burnham-came-out-top/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">35</span>
+        <span class="date">6月26日 周五 15:18</span>
+      </div>
+      <h3 class="title">Socceroos fans celebrate at city sites – as it happened</h3>
+      <p class="summary">This blog is now closedGet our breaking news email, free app…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/australia-news/live/2026/jun/26/australia-news-live-pat-conroy-defence-labor-karl-stefanovic-nine-moira-deeming-matthew-guy-liberals-victoria-coalition-tax-reform-ntwnfb" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">36</span>
+        <span class="date">6月26日 周五 13:55</span>
+      </div>
+      <h3 class="title">Venezuela suffers effects of Trump’s aid, foreign policies after deadly quakes</h3>
+      <p class="summary">President Donald Trump’s closure of US development agency US…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/venezuela-suffers-effects-of-trump-s-aid-foreign-policies-after-deadly-quakes" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">37</span>
+        <span class="date">6月26日 周五 13:04</span>
+      </div>
+      <h3 class="title">King Charles III will not live at Buckingham Palace after its costly refurbishment</h3>
+      <p class="summary">The decision was announced Thursday during a briefing on roy…</p>
+      <div class="card-foot">
+        <span class="chip" title="NPR World">NPR World</span>
+        <a class="link" href="https://www.npr.org/2026/06/26/g-s1-130347/king-charles-buckingham-palace" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">38</span>
+        <span class="date">6月26日 周五 12:35</span>
+      </div>
+      <h3 class="title">Matthew Guy demands Moira Deeming apologise for assault claim after Victoria police find ‘no offence detected’</h3>
+      <p class="summary">‘There was no ambiguity. I did not do what was alleged,’ Guy…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/australia-news/2026/jun/26/victoria-police-close-investigation-moira-deeming-allegation-assault-by-matthew-guy-saying-no-offence-detected-ntwnfb" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">39</span>
+        <span class="date">6月26日 周五 09:02</span>
+      </div>
+      <h3 class="title">Row over alleged theft of donations from India&#x27;s landmark Ram temple</h3>
+      <p class="summary">Questions are being raised over the handling of cash, valuab…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cn07gl6wx6go?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">40</span>
+        <span class="date">6月26日 周五 00:53</span>
+      </div>
+      <h3 class="title">Families lay flowers on barbed wire barricade on anniversary of deadly Kenya protests</h3>
+      <p class="summary">Protesters demand justice for the dozens killed during the 2…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cgqjl8kj8wpo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">41</span>
+        <span class="date">6月26日 周五 00:04</span>
+      </div>
+      <h3 class="title">‘Constitutional coup’ claims as Zimbabwe senate approves extending presidential term</h3>
+      <p class="summary">Opposition figures fear changes will further tighten 83-year…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/2026/jun/25/constitutional-coup-zimbabwe-senate-approves-presidential-term" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">42</span>
+        <span class="date">6月25日 周四 20:00</span>
+      </div>
+      <h3 class="title">World News in Brief: Ebola prevention, Yemen child deaths, Colombia elections, Japan climate campaign</h3>
+      <p class="summary">The UN&#x27;s top humanitarian official&amp;nbsp;has allocated $8 mil…</p>
+      <div class="card-foot">
+        <span class="chip" title="UN News - Global perspective Human stories">UN News - Global perspective Human stories</span>
+        <a class="link" href="https://news.un.org/feed/view/en/story/2026/06/1167812" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">43</span>
+        <span class="date">6月25日 周四 19:09</span>
+      </div>
+      <h3 class="title">2 earthquakes in Venezuela kill at least 164. And, Trump cancels housing bill signing</h3>
+      <p class="summary">Two major earthquakes in Venezuela have killed at least 164 …</p>
+      <div class="card-foot">
+        <span class="chip" title="NPR World">NPR World</span>
+        <a class="link" href="https://www.npr.org/2026/06/25/g-s1-130184/up-first-newsletter-venezuela-earthquakes-trump-senate-tensions-chris-donahue" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">44</span>
+        <span class="date">6月25日 周四 10:41</span>
+      </div>
+      <h3 class="title">Independent MPs launch new Australian centrist party</h3>
+      <p class="summary">Zali Steggall and Allegra Spender say Community Strong Austr…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/ckg76mgz0m1o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">45</span>
+        <span class="date">6月26日 周五 16:07</span>
+      </div>
+      <h3 class="title">菲律宾邦阿西楠省近海近一个月发生287次地震</h3>
+      <p class="summary">中新社马尼拉6月26日电 (记者 张兴龙)菲律宾火山地震研究所26日通报，过去一个月，菲北部邦阿西楠省博利瑙镇附近海域累…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647818.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">46</span>
+        <span class="date">6月26日 周五 14:47</span>
+      </div>
+      <h3 class="title">韩媒：金建希涉嫌“卖官鬻爵”案一审被判有期徒刑7年</h3>
+      <p class="summary">中新网6月26日电 据韩联社报道，韩国首尔中央地方法院26日就前总统尹锡悦妻子金建希涉嫌“卖官鬻爵”一案作出一审判决，判…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647773.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">47</span>
+        <span class="date">6月26日 周五 14:41</span>
+      </div>
+      <h3 class="title">金建希涉嫌“卖官鬻爵”案一审宣判 获刑7年</h3>
+      <p class="summary">当地时间6月26日，韩国首尔中央地方法院就前总统尹锡悦夫人金建希涉嫌利用影响力收受高价礼品贿赂进行“卖官鬻爵”一案一审宣…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647766.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">48</span>
+        <span class="date">6月26日 周五 14:31</span>
+      </div>
+      <h3 class="title">当“美国梦”成了“美国病” | 新漫评</h3>
+      <p class="summary">当许多人还把毒品问题视为贫穷国家和战乱地区的顽疾时，全球最发达国家美国，正在用触目惊心的数据颠覆这一认知。这个长期标榜自…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647745.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">49</span>
+        <span class="date">6月26日 周五 14:11</span>
+      </div>
+      <h3 class="title">庆祝世界杯晋级 厄瓜多尔总统：全国放假一天</h3>
+      <p class="summary">中新网6月26日电 据拉美社及印度亚洲国际新闻通讯社(ANI)报道，当地时间25日，厄瓜多尔总统丹尼尔·诺沃亚称，为庆祝…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647732.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">50</span>
+        <span class="date">6月26日 周五 14:05</span>
+      </div>
+      <h3 class="title">世界杯爆冷！厄瓜多尔全国放假1天！</h3>
+      <p class="summary">刚刚，厄瓜多尔总统宣布，当地时间6月26日，全国放假一天！</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647736.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">51</span>
+        <span class="date">6月26日 周五 11:09</span>
+      </div>
+      <h3 class="title">巴西向委内瑞拉派遣人道主义救援队</h3>
+      <p class="summary">中新社圣保罗6月25日电 (记者 林春茵)巴西总统卢拉25日批准向委内瑞拉派遣人道主义救援队，支援该国应对24日发生的7…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647507.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">52</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">商务部：中方对合规稀土出口许可申请将予以批准</h3>
+      <p class="summary">新华社北京6月5日电（记者谢希瑶）商务部新闻发言人何咏前在5日举行的例行新闻发布会上答记者问时表示，稀土等相关物项具有明…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494861.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">53</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">远景法国超级工厂投产 中法携手引领绿色能源转型</h3>
+      <p class="summary">人民网巴黎6月4日电 （记者于超凡）当地时间6月3日，电池科技企业远景动力位于法国杜埃的电池超级工厂正式投产，法国总统马…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494281.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#4338ca">
+      <div class="card-top">
+        <span class="num" style="background:#4338ca">54</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">加州就诉特朗普政府关税政策违法案提起上诉</h3>
+      <p class="summary">新华社洛杉矶6月3日电（记者黄恒）美国加利福尼亚州总检察长罗布·邦塔当地时间2日发布声明说，已就加州北区联邦地区法院就加…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494443.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="security" class="sec">
+    <div class="sec-head" style="--accent:#be123c">
+      <span class="sec-bar"></span>
+      <h2>冲突与安全<span class="sec-en">/ Security</span></h2>
+      <span class="sec-count">28 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">55</span>
+        <span class="date">6月26日 周五 20:08</span>
+      </div>
+      <h3 class="title">Europe heatwave live: red warning issued for millions in England; France and Belgium cancel events</h3>
+      <p class="summary">Estimated 150 million people in Europe could experience temp…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">56</span>
+        <span class="date">6月26日 周五 19:58</span>
+      </div>
+      <h3 class="title">New synthetic drugs, cocaine and meth booming, warns UN</h3>
+      <p class="summary">A spike in potent synthetic drugs comes as manufacturers res…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/new-synthetic-drugs-cocaine-and-meth-booming-warns-un?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">57</span>
+        <span class="date">6月26日 周五 19:55</span>
+      </div>
+      <h3 class="title">Remove home secretary Mahmood and rip up her asylum plans, says Alf Dubs</h3>
+      <p class="summary">Veteran Labour peer who fled Nazis as a child attacks ‘perfo…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/uk-news/2026/jun/26/remove-home-secretary-shabana-mahmood-and-rip-up-her-asylum-plans-says-alf-dubs" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">58</span>
+        <span class="date">6月26日 周五 19:45</span>
+      </div>
+      <h3 class="title">Hezbollah claims hits on Israel’s Iron Dome but videos show strikes on decoys</h3>
+      <p class="summary">As the on-again, off-again fighting continues between Israel…</p>
+      <div class="card-foot">
+        <span class="chip" title="© Observers">© Observers</span>
+        <a class="link" href="https://www.france24.com/en/middle-east/20260626-hezbollah-fpv-drones-iron-dome-decoy-launchers" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">59</span>
+        <span class="date">6月26日 周五 19:22</span>
+      </div>
+      <h3 class="title">Rescuers scramble to find Venezuela earthquake survivors. And, SCOTUS rules on asylum</h3>
+      <p class="summary">Rescuers are searching for thousands of people missing after…</p>
+      <div class="card-foot">
+        <span class="chip" title="NPR World">NPR World</span>
+        <a class="link" href="https://www.npr.org/2026/06/26/g-s1-130361/up-first-newsletter-venezuela-earthquakes-asylum-claims-farmers" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">60</span>
+        <span class="date">6月26日 周五 19:06</span>
+      </div>
+      <h3 class="title">Can Europe’s historic cities survive a warming climate?</h3>
+      <p class="summary">Heatwaves are forcing the continent to choose between preser…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/opinions/2026/6/26/can-europes-historic-cities-survive-a-warming-climate?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">61</span>
+        <span class="date">6月26日 周五 19:00</span>
+      </div>
+      <h3 class="title">Trump finds partner in supreme court in his war against immigration</h3>
+      <p class="summary">Recent rulings have bolstered president’s pitiless campaign …</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/us-news/2026/jun/26/trump-supreme-court-immigration" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">62</span>
+        <span class="date">6月26日 周五 18:55</span>
+      </div>
+      <h3 class="title">Whereabouts of nearly 300 people with Ebola unknown in DR Congo</h3>
+      <p class="summary">Fears over ‘huge community transmission’ as modelling predic…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/global-development/2026/jun/26/whereabouts-of-nearly-300-people-with-ebola-unknown-in-drc" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">63</span>
+        <span class="date">6月26日 周五 18:38</span>
+      </div>
+      <h3 class="title">IAEA demands verification of Iran nuclear ambitions amid ‘statement war’</h3>
+      <p class="summary">Watchdog&amp;#039;s call for &amp;#039;strong system&amp;#039; comes as …</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/iaea-demands-strong-verification-of-irans-nuclear-programme?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">64</span>
+        <span class="date">6月26日 周五 18:25</span>
+      </div>
+      <h3 class="title">Who has profited most from the war on Iran?</h3>
+      <p class="summary">Defence contractors, energy companies and investment banks s…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/who-has-profited-most-from-the-war-on-iran?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">65</span>
+        <span class="date">6月26日 周五 18:21</span>
+      </div>
+      <h3 class="title">Nigeria&#x27;s major police reform edges forward after senate approval</h3>
+      <p class="summary">The Nigerian Senate on June 24 approved a bill to allow stat…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/nigeria-s-major-police-reform-edges-forward-after-senate-approval" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">66</span>
+        <span class="date">6月26日 周五 18:12</span>
+      </div>
+      <h3 class="title">Russia reports downing 660 Ukrainian drones, denies seeking Belarus war aid</h3>
+      <p class="summary">The drone attack is one of Kyiv&amp;#039;s biggest of the war, s…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/russia-reports-downing-660-ukrainian-drones-denies-seeking-belarus-war-aid?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">67</span>
+        <span class="date">6月26日 周五 17:46</span>
+      </div>
+      <h3 class="title">French riviera spared from scorching heatwave</h3>
+      <p class="summary">Three quarters of mainland France is under a “red alert” for…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/french-riviera-spared-from-scorching-heatwave" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">68</span>
+        <span class="date">6月26日 周五 17:38</span>
+      </div>
+      <h3 class="title">Venezuela hunts for survivors of twin quakes as it waits for foreign aid</h3>
+      <p class="summary">Venezuela&#x27;s health minister says 235 deaths have been record…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/venezuela-hunts-for-survivors-of-twin-quakes-as-it-waits-for-foreign-aid" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">69</span>
+        <span class="date">6月26日 周五 16:51</span>
+      </div>
+      <h3 class="title">Iran nuclear pledge needs &#x27;very strong&#x27; verification after war, IAEA chief says</h3>
+      <p class="summary">A &quot;very strong verification system&quot; is needed in Iran to ens…</p>
+      <div class="card-foot">
+        <span class="chip" title="© ibrahim Amro, AFP">© ibrahim Amro, AFP</span>
+        <a class="link" href="https://www.france24.com/en/middle-east/20260626-un-nuclear-chief-says-iran-s-pledge-not-to-develop-nuclear-weapons-needs-very-strong-verification" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">70</span>
+        <span class="date">6月26日 周五 16:44</span>
+      </div>
+      <h3 class="title">Heathrow expects fall in passengers and profits this year because of Iran war</h3>
+      <p class="summary">Airport has also been ‘engaging closely’ with regulator to d…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/uk-news/2026/jun/26/heathrow-expects-fall-in-passengers-and-profits-this-year-because-of-iran-war" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">71</span>
+        <span class="date">6月26日 周五 16:22</span>
+      </div>
+      <h3 class="title">Weather tracker: Heatwave expected to bring Germany and Poland to 40C</h3>
+      <p class="summary">Austrian Grand Prix declares heat hazard as dramatic rise in…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/environment/2026/jun/26/weather-tracker-heatwave-germany-poland-40c-temperatures" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">72</span>
+        <span class="date">6月26日 周五 16:16</span>
+      </div>
+      <h3 class="title">North Korea conducts major weapons tests; South training ‘drone warriors’</h3>
+      <p class="summary">Kim Jong Un demands a &amp;#039;deadly and destructive offensive…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/north-korea-conducts-major-weapons-tests-south-training-drone-warriors?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">73</span>
+        <span class="date">6月26日 周五 15:07</span>
+      </div>
+      <h3 class="title">Iran war day 119: Israel hits Lebanon as IAEA says it will return to Iran</h3>
+      <p class="summary">Israeli and Lebanese delegations will continue their talks o…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/news/2026/6/26/iran-war-day-119-israel-hits-lebanon-as-iaea-says-it-will-return-to-iran?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">74</span>
+        <span class="date">6月26日 周五 14:04</span>
+      </div>
+      <h3 class="title">South Korea to train half a million military personnel to become ‘drone warriors’</h3>
+      <p class="summary">All branches of the military will be taught how to use techn…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/world/2026/jun/26/south-korea-drone-warriors-military-training" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">75</span>
+        <span class="date">6月26日 周五 13:49</span>
+      </div>
+      <h3 class="title">俄罗斯称一夜之间击落660架乌克兰无人机</h3>
+      <p class="summary">中新网6月26日电 据法新社报道，俄罗斯国防部26日表示，俄防空部队一夜之间击落了660架乌克兰无人机。这些无人机在十多…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647713.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">76</span>
+        <span class="date">6月26日 周五 11:09</span>
+      </div>
+      <h3 class="title">美媒：美官员称伊朗袭击货船 美伊协议受考验</h3>
+      <p class="summary">中新网6月26日电 据美国《华尔街日报》援引两名美国官员的话报道，当地时间25日，伊朗伊斯兰革命卫队在霍尔木兹海峡袭击了…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647628.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">77</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">美俄总统通话讨论俄乌冲突等问题</h3>
+      <p class="summary">新华社洛杉矶/莫斯科6月4日电（记者黄恒 赵冰）美国总统特朗普4日在社交媒体上说，他当天与俄罗斯总统普京进行了长约75分…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494447.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">78</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">普京说乌克兰系列袭击旨在破坏和谈 泽连斯基表示仍愿与普京会晤</h3>
+      <p class="summary">新华社莫斯科/基辅6月4日电（记者赵冰 李东旭）俄罗斯总统普京4日在与俄政府官员举行视频会议时说，乌克兰近期对俄罗斯的一…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494446.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">79</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">俄外长：乌克兰拒绝俄罗斯停火2至3天的提议是“严重错误”</h3>
+      <p class="summary">新华社莫斯科6月4日电（记者赵冰）俄罗斯外交部长拉夫罗夫4日表示，乌克兰拒绝俄罗斯停火2至3天的提议是“严重错误”。 俄…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494439.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">80</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">俄乌将于本周末再次换俘</h3>
+      <p class="summary">新华社莫斯科/基辅6月4日电（记者赵冰 李东旭）俄乌双方4日分别表示，将于本周末再次交换被俘人员。 俄罗斯总统普京4日召…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494421.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">81</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">俄总统新闻秘书：克里米亚大桥遭乌方袭击但未被破坏</h3>
+      <p class="summary">新华社莫斯科6月4日电（记者赵冰）俄罗斯总统新闻秘书佩斯科夫4日说，克里米亚大桥日前遭到乌克兰袭击并发生爆炸，但大桥并未…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494390.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#be123c">
+      <div class="card-top">
+        <span class="num" style="background:#be123c">82</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">观天下·美国政坛｜马斯克为何称特朗普力推法案“令人作呕”</h3>
+      <p class="summary">新华社北京6月4日电 美国企业家埃隆·马斯克3日痛批总统唐纳德·特朗普力推的大规模税收与支出“大而美”法案“令人作呕”，…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494379.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section id="policy" class="sec">
+    <div class="sec-head" style="--accent:#0f766e">
+      <span class="sec-bar"></span>
+      <h2>政策与治理<span class="sec-en">/ Governance</span></h2>
+      <span class="sec-count">16 条</span>
+    </div>
+    <div class="grid">
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">83</span>
+        <span class="date">6月26日 周五 19:41</span>
+      </div>
+      <h3 class="title">Revolut pushes new recruits into office in shift from ‘remote-first’ policy</h3>
+      <p class="summary">Hundreds of graduates and interns at finance firm will now h…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/business/2026/jun/26/revolut-recruits-work-in-office-remote-first-policy-graduates-interns" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">84</span>
+        <span class="date">6月26日 周五 19:29</span>
+      </div>
+      <h3 class="title">Andrew Tate’s legal claim against prosecutors’ refusal to name alleged victims thrown out</h3>
+      <p class="summary">Tate and his brother argued CPS acted unlawfully by not tell…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/uk-news/2026/jun/26/andrew-tate-legal-claim-against-prosecutors-refusal-to-name-alleged-victims-thrown-out" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">85</span>
+        <span class="date">6月26日 周五 19:08</span>
+      </div>
+      <h3 class="title">Court lifts anonymity order on 13 men charged alongside man accused of drugging and raping wife</h3>
+      <p class="summary">Co-defendants in case against Stockport man include a parame…</p>
+      <div class="card-foot">
+        <span class="chip" title="The Guardian World">The Guardian World</span>
+        <a class="link" href="https://www.theguardian.com/uk-news/2026/jun/26/13-men-charged-alongside-stockport-rape-accused-identified" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">86</span>
+        <span class="date">6月26日 周五 18:17</span>
+      </div>
+      <h3 class="title">EU Commission proposes excluding fighting-age men from Ukraine refugee scheme</h3>
+      <p class="summary">The limitation wouldn&#x27;t apply to those already under protect…</p>
+      <div class="card-foot">
+        <span class="chip" title="Politico Europe">Politico Europe</span>
+        <a class="link" href="https://www.politico.eu/article/ukraine-refugees-eu-commission-excluding-fighting-age-men/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">87</span>
+        <span class="date">6月26日 周五 17:39</span>
+      </div>
+      <h3 class="title">Arts and humanities graduates earn less than those who didn&#x27;t go to university</h3>
+      <p class="summary">PRESS REVIEW – Friday, June 26: Papers discuss the scientifi…</p>
+      <div class="card-foot">
+        <span class="chip" title="France 24">France 24</span>
+        <a class="link" href="https://www.france24.com/en/arts-and-humanities-graduates-earn-less-than-those-who-didn-t-go-to-university" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">88</span>
+        <span class="date">6月26日 周五 13:25</span>
+      </div>
+      <h3 class="title">US ends deportation protections (TPS) for Haitians and Syrians</h3>
+      <p class="summary">The US Supreme Court has sided with the Trump administration…</p>
+      <div class="card-foot">
+        <span class="chip" title="Al Jazeera">Al Jazeera</span>
+        <a class="link" href="https://www.aljazeera.com/video/newsfeed/2026/6/26/us-ends-deportation-protections-tps-for-haitians-and-syrians?traffic_source=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">89</span>
+        <span class="date">6月26日 周五 12:00</span>
+      </div>
+      <h3 class="title">Who’s in the frame for Europe’s top cop job</h3>
+      <p class="summary">The job of leading Europe&#x27;s powerful police agency is up for…</p>
+      <div class="card-foot">
+        <span class="chip" title="Politico Europe">Politico Europe</span>
+        <a class="link" href="https://www.politico.eu/article/meet-the-candidates-for-europes-top-cop-job-europol/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">90</span>
+        <span class="date">6月26日 周五 10:18</span>
+      </div>
+      <h3 class="title">Supreme Court allows Trump to end protected status for Haitian and Syrian immigrants</h3>
+      <p class="summary">The ruling opens the path for the Trump administration to de…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/c4g8ym422lko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">91</span>
+        <span class="date">6月25日 周四 10:40</span>
+      </div>
+      <h3 class="title">The ICE raids are over, but some Minnesotans say they still live in fear</h3>
+      <p class="summary">Months after the Trump administration&#x27;s immigration crackdow…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/c0eyww7280xo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">92</span>
+        <span class="date">6月25日 周四 10:38</span>
+      </div>
+      <h3 class="title">This Indian state is trying to ensure no one grows old alone</h3>
+      <p class="summary">Kerala is searching for new ways to care for its ageing popu…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/cg74dj4xev5o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">93</span>
+        <span class="date">6月24日 周三 21:51</span>
+      </div>
+      <h3 class="title">Air conditioning creates political divide after France records hottest day</h3>
+      <p class="summary">France is being forced to re-think its longstanding reservat…</p>
+      <div class="card-foot">
+        <span class="chip" title="BBC World">BBC World</span>
+        <a class="link" href="https://www.bbc.co.uk/news/articles/c4gyqldl3p5o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">94</span>
+        <span class="date">Thursday, June 4, 2026 - 15:42</span>
+      </div>
+      <h3 class="title">Tiny Djibouti, and Its Prime Real Estate</h3>
+      <p class="summary">This week on The Horn, Alan speaks with Samson Abebe Bezabeh…</p>
+      <div class="card-foot">
+        <span class="chip" title="Crisis Group">Crisis Group</span>
+        <a class="link" href="https://www.crisisgroup.org/pod/africa/djibouti/tiny-djibouti-and-its-prime-real-estate" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">95</span>
+        <span class="date">6月26日 周五 11:08</span>
+      </div>
+      <h3 class="title">巴西央行将2026年经济增长预期上调至2%</h3>
+      <p class="summary">中新社圣保罗6月25日电 巴西中央银行25日发布《货币政策报告》，基于今年第一季度经济表现好于预期，以及农业和矿产业前景…</p>
+      <div class="card-foot">
+        <span class="chip" title="中新网·国际">中新网·国际</span>
+        <a class="link" href="https://www.chinanews.com.cn/gj/2026/06-26/10647506.shtml" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">96</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">美联储“褐皮书”：美国经济不确定性居高位 关税推高物价</h3>
+      <p class="summary">新华社纽约6月4日电（记者刘亚南）美国联邦储备委员会4日发布的全国经济形势调查报告显示，美国经济和政策的不确定性处于高位…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494887.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">97</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">中日气候变化问题专家在东京举办交流会</h3>
+      <p class="summary">新华网东京6月5日电（记者杨光）由日本笹川和平财团主办的中日气候变化问题专家交流会3日在东京举行。中日相关领域专家在友好…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494458.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+
+    <article class="card" style="--accent:#0f766e">
+      <div class="card-top">
+        <span class="num" style="background:#0f766e">98</span>
+        <span class="date">2025-06-05</span>
+      </div>
+      <h3 class="title">北京优化入境旅游服务 激发“中国游”活力</h3>
+      <p class="summary">新华社北京6月4日电（记者杨淑君）登上长城，欣赏雄伟壮丽的景色；沿北京中轴线漫步，感受悠久的中华文明；徜徉于亮马河国际风…</p>
+      <div class="card-foot">
+        <span class="chip" title="人民网·国际">人民网·国际</span>
+        <a class="link" href="http://world.people.com.cn/n1/2025/0605/c1002-40494429.html" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+      </div>
+    </article>
+    </div>
+  </section>
+<div class="note">注：本报告仅汇总公开来源的国际政治新闻，不代表任何政治立场；时间均为北京时间。</div>
+</main>
+<footer class="foot">
+  <p>本期共收录 <b>98</b> 条要闻，覆盖 2026.06.26（滚动近2日）。</p>
+  <p style="margin-top:6px">数据来源：中新网 / 人民网 / BBC / The Guardian / Al Jazeera / France 24 / NPR / UN News / Crisis Group / Politico Europe / Foreign Affairs 等 RSS 源 · 时间均为北京时间 · 由 WorkBuddy 自动汇总生成</p>
+</footer>
+<script>
+const navItems=document.querySelectorAll('.nav-item');const map=new Map();
+navItems.forEach(n=>map.set(n.getAttribute('href').slice(1),n));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){navItems.forEach(n=>n.classList.remove('active'));const t=map.get(x.target.id);if(t)t.classList.add('active');}})},{rootMargin:'-80px 0px -70% 0px',threshold:0});
+document.querySelectorAll('.sec').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

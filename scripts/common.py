@@ -2,6 +2,7 @@
 """Common utilities: RSS fetching, time formatting, shared dashboard template."""
 from __future__ import annotations
 import html
+import gzip
 import json
 import os
 import re
@@ -82,7 +83,10 @@ def fetch_rss(url: str, limit: int = 30, source_name: str = "") -> list[dict]:
     Robust against common RSS quirks; never raises (returns [] on failure).
     """
     try:
-        raw = http_get(url, timeout=20).decode("utf-8", errors="replace")
+        payload = http_get(url, timeout=20)
+        if payload.startswith(b"\x1f\x8b"):
+            payload = gzip.decompress(payload)
+        raw = payload.decode("utf-8", errors="replace")
     except Exception as e:
         print(f"  [RSS WARN] {url}: {e}")
         return []
@@ -361,7 +365,7 @@ def write_meta(name: str, meta: dict) -> None:
 
 
 def save_dashboard(name: str, html_str: str, date_str: str) -> None:
-    """Save current + archived copy. name in {ai, finance, affairs}."""
+    """Save current + archived copy for a dashboard."""
     # current
     cur_path = os.path.join(SITE_DIR, name, "index.html")
     os.makedirs(os.path.dirname(cur_path), exist_ok=True)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build the site index.html: three dashboard entry cards + recent archive list."""
+"""Build the site index.html: dashboard entry cards + recent archive list."""
 from __future__ import annotations
 import json
 import os
@@ -10,6 +10,7 @@ DASHBOARDS = [
     ("ai",       "AI 行业晨报",        "AI Industry Daily",       "近7日 AI 圈模型/产品/行业/论文/观点汇总"),
     ("finance",  "国际金融日报",       "Global Finance Daily",    "全球股市/央行/商品/汇率债市/机构观点"),
     ("affairs",  "国际要闻日报",       "World This Week Daily",   "世界杯/科技太空/自然气候/会议展会/商业"),
+    ("politics", "国际政治日报",       "Global Politics Daily",   "外交/多边组织/选举政局/安全冲突/政策治理"),
 ]
 
 # Read all metas
@@ -135,7 +136,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Mic
 <body>
 <header class="site-hero">
   <h1>每日国际要闻 · 仪表盘</h1>
-  <div class="sub">AI 行业 · 国际金融 · 国际要闻 三联仪表盘，每日北京时间早 8 点自动更新</div>
+  <div class="sub">AI 行业 · 国际金融 · 国际要闻 · 国际政治 四联仪表盘，每日北京时间早 8 点自动更新</div>
   <div class="ts">最近更新：{now_label}</div>
 </header>
 <main class="wrap">
@@ -149,7 +150,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Mic
 </main>
 <footer class="foot">
   <p>本站由 GitHub Actions 每日自动抓取数据生成并部署到 Cloudflare Pages。</p>
-  <p style="margin-top:6px">数据源：AI HOT API · RSS 订阅源（东方财富 / 财联社 / NASA / FourFourTwo 等）· 由 WorkBuddy 自动汇总</p>
+  <p style="margin-top:6px">数据源：AI HOT API · RSS 订阅源（中新网 / 人民网 / BBC / The Guardian / UN News / Crisis Group / NASA 等）· 由 WorkBuddy 自动汇总</p>
 </footer>
 </body>
 </html>"""
