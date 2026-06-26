@@ -4,7 +4,7 @@
   "en": "Global Finance Daily",
   "date": "2026-06-26",
   "date_range": "2026.06.26（滚动近2日）",
-  "total": 41,
+  "total": 51,
   "sections": [
     {
       "zh": "股市行情",
@@ -29,7 +29,7 @@
     {
       "zh": "要闻与机构观点",
       "en": "Market Watch",
-      "count": 20
+      "count": 30
     }
   ],
   "gradient": "linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#155e75 100%)",
