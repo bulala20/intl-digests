@@ -125,8 +125,12 @@ def build_sections(items):
             "source": it["source"],
             "url": it["link"] or "#",
         })
+    # Cap each section to 20; reserve at least 5 slots for international sources
+    DOMESTIC = {"中新网·国际", "中新网·体育", "中新网·社会", "人民网·国际"}
     for s in SECTION_ORDER:
-        buckets[s] = buckets[s][:12]
+        domestic = [it for it in buckets[s] if it["source"] in DOMESTIC]
+        intl = [it for it in buckets[s] if it["source"] not in DOMESTIC]
+        buckets[s] = (domestic[:15] + intl[:5])[:20]
     out = []
     for s in SECTION_ORDER:
         sid, color, en = SECTION_META[s]
