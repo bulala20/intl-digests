@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """Fetch international affairs (non-political) news from RSS feeds, classify, render.
 
-Focus areas: World Cup, Science & Space, Climate, International Forums/Expos, Business.
+Focus areas: World Cup/Sports, Science & Space, Climate, International Forums/Expos, Business.
 Strictly excludes political conflicts / political figures / elections / government policies.
+
+Data sources (domestic + international, all official RSS):
+Domestic (国内): 中新网(国际/体育/社会), 人民网国际
+International (国外): ESPN, Sky Sports, NASA, ESA, New Scientist, Nature, BBC, Carbon Brief
 """
 from __future__ import annotations
 import sys
@@ -10,26 +14,26 @@ from common import (fetch_rss, fmt_beijing, today_str, now_beijing, classify,
                     render_dashboard, save_dashboard, write_meta)
 from datetime import timedelta, datetime, timezone
 
-RSSHUB = "https://rsshub.app"
-
 FEEDS = [
-    # World Cup / Sports (official)
-    ("https://www.espn.com/espn/rss/news",                        "ESPN News"),
-    ("https://www.skysports.com/rss/0,20514,11661,00.xml",        "Sky Sports Football"),
-    # Science & Space (official, stable)
-    ("https://www.nasa.gov/rss/dyn/breaking_news.rss",            "NASA Breaking News"),
-    ("https://www.esa.int/rssfeed/Our_Activities/Space_News",     "ESA Space News"),
-    ("https://www.newscientist.com/section/news/feed/",           "New Scientist"),
-    ("https://www.nature.com/nature.rss",                         "Nature"),
-    # Climate & Environment (official)
+    # 国内 Domestic (official RSS, stable)
+    ("https://www.chinanews.com.cn/rss/world.xml",                   "中新网·国际"),
+    ("https://www.chinanews.com.cn/rss/sports.xml",                  "中新网·体育"),
+    ("https://www.chinanews.com.cn/rss/society.xml",                 "中新网·社会"),
+    ("http://www.people.com.cn/rss/world.xml",                       "人民网·国际"),
+    # World Cup / Sports (international)
+    ("https://www.espn.com/espn/rss/news",                           "ESPN News"),
+    ("https://www.skysports.com/rss/0,20514,11661,00.xml",           "Sky Sports Football"),
+    # Science & Space (international, official, stable)
+    ("https://www.nasa.gov/rss/dyn/breaking_news.rss",               "NASA Breaking News"),
+    ("https://www.esa.int/rssfeed/Our_Activities/Space_News",        "ESA Space News"),
+    ("https://www.newscientist.com/section/news/feed/",              "New Scientist"),
+    ("https://www.nature.com/nature.rss",                            "Nature"),
+    # Climate & Environment (international, official)
     ("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml", "BBC Science & Environment"),
-    ("https://www.carbonbrief.org/feed",                          "Carbon Brief"),
+    ("https://www.carbonbrief.org/feed",                             "Carbon Brief"),
     # General world news (BBC, excludes political by keyword filter)
-    ("http://feeds.bbci.co.uk/news/rss.xml",                      "BBC News"),
-    ("http://feeds.bbci.co.uk/news/world/rss.xml",                "BBC World"),
-    # Forums / Expos / Business
-    (f"{RSSHUB}/weforum/stories",                                 "世界经济论坛"),
-    (f"{RSSHUB}/reuters/business",                                "路透·商业"),
+    ("http://feeds.bbci.co.uk/news/rss.xml",                         "BBC News"),
+    ("http://feeds.bbci.co.uk/news/world/rss.xml",                   "BBC World"),
 ]
 
 SECTION_ORDER = ["世界杯赛况", "科技与太空", "自然与气候", "国际会议与展会", "商业与产业"]
@@ -146,13 +150,13 @@ def main():
     html_str = render_dashboard(
         title="国际要闻日报 · 今日速览",
         tag="WORLD THIS WEEK · DAILY DIGEST",
-        subtitle="聚焦非政治类国际事件：世界杯赛况、科技与太空、自然与气候、国际会议与展会、商业与产业。",
+        subtitle="聚焦国内外非政治类事件：体育赛况、科技与太空、自然与气候、国际会议与展会、商业与产业。",
         gradient="linear-gradient(135deg,#7c2d12 0%,#c2410c 45%,#ea580c 100%)",
         date_range=date_range,
         period_label="更新日期",
         sections=sections,
-        footer_source="FourFourTwo / FIFA / NASA / Space.com / Nature / 新华社 / 光明网 / 世界经济论坛 / 路透 等 RSS 源",
-        footer_note="📌 本报告聚焦体育、科技、自然、会议、商业等非政治类国际事件；时间均为北京时间。",
+        footer_source="中新网 / 人民网 / ESPN / NASA / ESA / New Scientist / Nature / BBC / Carbon Brief 等 RSS 源",
+        footer_note="📌 本报告聚焦体育、科技、自然、会议、商业等非政治类国内外事件；时间均为北京时间。",
     )
     save_dashboard("affairs", html_str, today)
 

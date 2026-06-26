@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
-"""Fetch international finance news from RSS feeds, classify, and render dashboard.
+"""Fetch finance news from RSS feeds (domestic + international), classify, render.
 
-Data sources (all free, RSS-based):
-- 东方财富国际要情 (via RSSHub public instance)
-- 财联社电报 (via RSSHub)
-- 新浪财经国际 (via RSSHub)
-- 36氪快讯 (via RSSHub)
+Data sources (all free, official RSS — domestic + international):
+Domestic (国内):
+- 中新网财经 (官方 RSS, stable)
+- 人民网国际 (官方 RSS)
+International (国外):
 - CNBC Top News (official RSS)
 - Investing.com News (official RSS)
+- MarketWatch (official RSS)
+- BBC Business (official RSS)
+- Financial Times (official RSS)
+
+RSSHub public instance (rsshub.app) is unreliable (403), so we use official RSS only.
 """
 from __future__ import annotations
 import sys
@@ -15,21 +20,17 @@ from common import (fetch_rss, fmt_beijing, today_str, now_beijing, classify,
                     render_dashboard, save_dashboard, write_meta)
 from datetime import timedelta
 
-# RSSHub public instance (backup; may 403). Prefer official RSS below.
-RSSHUB = "https://rsshub.app"
-
 FEEDS = [
-    # Official RSS (stable, no RSSHub dependency)
-    ("https://www.cnbc.com/id/100003114/device/rss/rss.html",         "CNBC Top News"),
-    ("https://www.investing.com/rss/news_1.rss",                      "Investing.com"),
-    ("http://feeds.marketwatch.com/marketwatch/topstories/",          "MarketWatch"),
-    ("http://feeds.bbci.co.uk/news/business/rss.xml",                 "BBC Business"),
-    ("https://www.ft.com/rss/home",                                   "Financial Times"),
-    # RSSHub (backup; may fail with 403 on public instance)
-    (f"{RSSHUB}/eastmoney/international",                             "东方财富·国际要情"),
-    (f"{RSSHUB}/cls/telegraph",                                      "财联社·电报"),
-    (f"{RSSHUB}/sina/finance/international",                         "新浪财经·国际"),
-    (f"{RSSHUB}/36kr/newsflashes",                                   "36氪·快讯"),
+    # 国内 Domestic (official RSS, stable)
+    ("https://www.chinanews.com.cn/rss/finance.xml",                "中新网·财经"),
+    ("https://www.chinanews.com.cn/rss/scroll-news.xml",            "中新网·即时"),
+    ("http://www.people.com.cn/rss/world.xml",                      "人民网·国际"),
+    # 国外 International (official RSS)
+    ("https://www.cnbc.com/id/100003114/device/rss/rss.html",       "CNBC Top News"),
+    ("https://www.investing.com/rss/news_1.rss",                    "Investing.com"),
+    ("http://feeds.marketwatch.com/marketwatch/topstories/",        "MarketWatch"),
+    ("http://feeds.bbci.co.uk/news/business/rss.xml",               "BBC Business"),
+    ("https://www.ft.com/rss/home",                                 "Financial Times"),
 ]
 
 SECTION_ORDER = ["股市行情", "央行与货币政策", "大宗商品", "汇率与债市", "要闻与机构观点"]
@@ -121,12 +122,12 @@ def main():
     html_str = render_dashboard(
         title="国际金融日报 · 今日速览",
         tag="GLOBAL FINANCE · DAILY DIGEST",
-        subtitle="每日汇总全球股市、央行政策、大宗商品、汇率债市与机构要闻。",
+        subtitle="每日汇总国内外财经要闻：股市行情、央行政策、大宗商品、汇率债市与机构观点。",
         gradient="linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#155e75 100%)",
         date_range=date_range,
         period_label="更新日期",
         sections=sections,
-        footer_source="东方财富 / 财联社 / 新浪财经 / 36氪 / CNBC / Investing.com 等 RSS 源",
+        footer_source="中新网 / 人民网 / CNBC / Investing.com / MarketWatch / BBC / FT 等 RSS 源",
         footer_note="⚠️ 风险提示：本报告仅汇总公开财经资讯与市场数据，不构成任何投资建议。股市、商品、汇率波动存在风险，据此操作风险自担。",
     )
     save_dashboard("finance", html_str, today)
