@@ -2,8 +2,10 @@ name: Daily Digest Build
 
 on:
   schedule:
-    # 0:00 UTC = 8:00 Beijing time, daily
+    # 0:00 UTC = 8:00 Beijing time, daily (morning edition)
     - cron: '0 0 * * *'
+    # 4:00 UTC = 12:00 Beijing time, daily (noon edition)
+    - cron: '0 4 * * *'
   workflow_dispatch:  # allow manual trigger
 
 permissions:
@@ -57,6 +59,13 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore(daily): auto-update dashboards [$(date -u +%Y-%m-%d)]"
+            # Label edition by Beijing hour: 8-11 = morning, 12-15 = noon
+            BJ_HOUR=$(TZ='Asia/Shanghai' date +%H)
+            if [ "$BJ_HOUR" -ge 12 ] && [ "$BJ_HOUR" -lt 16 ]; then
+              EDITION="noon"
+            else
+              EDITION="morning"
+            fi
+            git commit -m "chore(daily): auto-update dashboards ($EDITION) [$(TZ='Asia/Shanghai' date +%Y-%m-%d)]"
             git push
           fi
