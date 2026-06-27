@@ -4,8 +4,8 @@ on:
   schedule:
     # 0:00 UTC = 8:00 Beijing time, daily (morning edition)
     - cron: '0 0 * * *'
-    # 4:00 UTC = 12:00 Beijing time, daily (noon edition)
-    - cron: '0 4 * * *'
+    # 12:00 UTC = 20:00 Beijing time, daily (evening edition)
+    - cron: '0 12 * * *'
   workflow_dispatch:  # allow manual trigger
 
 permissions:
@@ -63,10 +63,10 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            # Label edition by Beijing hour: 8-11 = morning, 12-15 = noon
+            # Label edition by Beijing hour: 8-11 = morning, 20-23 = evening
             BJ_HOUR=$(TZ='Asia/Shanghai' date +%H)
-            if [ "$BJ_HOUR" -ge 12 ] && [ "$BJ_HOUR" -lt 16 ]; then
-              EDITION="noon"
+            if [ "$BJ_HOUR" -ge 20 ] && [ "$BJ_HOUR" -lt 24 ]; then
+              EDITION="evening"
             else
               EDITION="morning"
             fi
