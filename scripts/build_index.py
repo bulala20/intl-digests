@@ -150,7 +150,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Mic
 </main>
 <footer class="foot">
   <p>本站由 GitHub Actions 每日自动抓取数据生成并部署到 Cloudflare Pages。</p>
-  <p style="margin-top:6px">数据源：AI HOT API · RSS 订阅源（中新网 / 人民网 / BBC / The Guardian / UN News / Crisis Group / NASA 等）· 由 WorkBuddy 自动汇总</p>
+  <p style="margin-top:6px">数据源：AI HOT API · RSS 订阅源（中新网 / 人民网 / BBC / The Guardian / UN News / Crisis Group / NASA 等）</p>
 </footer>
 </body>
 </html>"""

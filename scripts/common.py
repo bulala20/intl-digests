@@ -348,7 +348,7 @@ def render_dashboard(*, title: str, tag: str, subtitle: str,
 </main>
 <footer class="foot">
   <p>本期共收录 <b>{total}</b> 条要闻，覆盖 {esc(date_range)}。</p>
-  <p style="margin-top:6px">数据来源：{esc(footer_source)} · 时间均为北京时间 · 由 WorkBuddy 自动汇总生成</p>
+  <p style="margin-top:6px">数据来源：{esc(footer_source)} · 时间均为北京时间</p>
 </footer>
 <script>{NAV_JS}</script>
 </body>

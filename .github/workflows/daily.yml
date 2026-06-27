@@ -2,8 +2,8 @@ name: Daily Digest Build
 
 on:
   schedule:
-    # 0:00 UTC = 8:00 Beijing time, daily (morning edition)
-    - cron: '0 0 * * *'
+    # 0:30 UTC = 8:30 Beijing time, daily (morning edition)
+    - cron: '30 0 * * *'
     # 12:00 UTC = 20:00 Beijing time, daily (evening edition)
     - cron: '0 12 * * *'
   workflow_dispatch:  # allow manual trigger
