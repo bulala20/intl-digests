@@ -4,22 +4,22 @@
   "en": "World This Week Daily",
   "date": "2026-06-29",
   "date_range": "2026.06.29（滚动近2日）",
-  "total": 102,
+  "total": 97,
   "sections": [
     {
       "zh": "世界杯赛况",
       "en": "World Cup",
-      "count": 28
+      "count": 27
     },
     {
       "zh": "科技与太空",
       "en": "Science & Space",
-      "count": 21
+      "count": 20
     },
     {
       "zh": "自然与气候",
       "en": "Climate",
-      "count": 19
+      "count": 16
     },
     {
       "zh": "国际会议与展会",
