@@ -2,24 +2,24 @@
   "name": "affairs",
   "title": "国际要闻日报",
   "en": "World This Week Daily",
-  "date": "2026-07-01",
-  "date_range": "2026.07.01（滚动近2日）",
-  "total": 88,
+  "date": "2026-07-02",
+  "date_range": "2026.07.02（滚动近2日）",
+  "total": 104,
   "sections": [
     {
       "zh": "世界杯赛况",
       "en": "World Cup",
-      "count": 26
+      "count": 30
     },
     {
       "zh": "科技与太空",
       "en": "Science & Space",
-      "count": 21
+      "count": 22
     },
     {
       "zh": "自然与气候",
       "en": "Climate",
-      "count": 3
+      "count": 14
     },
     {
       "zh": "国际会议与展会",
