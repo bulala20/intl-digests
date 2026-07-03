@@ -4,32 +4,32 @@
   "en": "Global Politics Daily",
   "date": "2026-07-03",
   "date_range": "2026.07.03（滚动近2日）",
-  "total": 90,
+  "total": 95,
   "sections": [
     {
       "zh": "外交与双边关系",
       "en": "Diplomacy",
-      "count": 13
+      "count": 15
     },
     {
       "zh": "国际组织与多边机制",
       "en": "Multilateral",
-      "count": 14
+      "count": 17
     },
     {
       "zh": "选举与政局",
       "en": "Elections",
-      "count": 27
+      "count": 29
     },
     {
       "zh": "冲突与安全",
       "en": "Security",
-      "count": 28
+      "count": 27
     },
     {
       "zh": "政策与治理",
       "en": "Governance",
-      "count": 8
+      "count": 7
     }
   ],
   "gradient": "linear-gradient(135deg,#111827 0%,#7f1d1d 48%,#b45309 100%)",
