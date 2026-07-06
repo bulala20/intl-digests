@@ -70,8 +70,33 @@ def main():
     print("[AI] fetching last 7 days from aihot API...")
     all_data, dates = fetch_last_7_days()
     if not all_data:
-        print("[AI] no data fetched, abort")
-        return 1
+        print("[AI] no data fetched from API, generating empty dashboard to avoid blocking workflow")
+        sections = [{"id": SECTION_META[s][0], "zh": s, "en": SECTION_META[s][2],
+                      "color": SECTION_META[s][1], "items": []} for s in SECTION_ORDER]
+        total = 0
+        today = today_str()
+        date_range = f"{dates[0].replace('-', '.')} — {dates[-1][-5:].replace('-', '.')}"
+        html_str = render_dashboard(
+            title="AI 行业晨报 · 近七日回顾",
+            tag="AI HOT · WEEKLY DIGEST",
+            subtitle="汇聚近七日 AI 圈模型 / 产品 / 行业 / 论文 / 观点五大版块要闻，一站式速览。",
+            gradient="linear-gradient(135deg,#1e1b4b 0%,#3730a3 45%,#6d28d9 100%)",
+            date_range=date_range,
+            period_label="日期范围",
+            sections=sections,
+            footer_source="AI HOT (aihot.virxact.com)",
+            footer_note="⚠️ 本次 API 获取失败，数据暂缺，下次定时任务将自动恢复。",
+        )
+        save_dashboard("ai", html_str, today)
+        write_meta("ai", {
+            "name": "ai", "title": "AI 行业晨报", "en": "AI Industry Daily",
+            "date": today, "date_range": date_range, "total": 0,
+            "sections": [{"zh": s, "en": SECTION_META[s][2], "count": 0} for s in SECTION_ORDER],
+            "gradient": "linear-gradient(135deg,#1e1b4b 0%,#3730a3 45%,#6d28d9 100%)",
+            "tag": "AI HOT · DIGEST",
+        })
+        print(f"[AI] done (empty, API unavailable). total=0")
+        return 0  # return 0 so workflow continues with other dashboards
 
     sections = build_sections(all_data, dates)
     total = sum(len(s["items"]) for s in sections)

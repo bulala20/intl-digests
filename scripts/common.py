@@ -66,10 +66,20 @@ def relative_day(date_str: str) -> str:
 
 
 # ---------- Network ----------
-def http_get(url: str, timeout: int = 30) -> bytes:
-    req = urllib.request.Request(url, headers=HTTP_HEADERS)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return resp.read()
+def http_get(url: str, timeout: int = 30, retries: int = 3) -> bytes:
+    """HTTP GET with retry. Raises last exception after all retries exhausted."""
+    import time
+    last_err = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=HTTP_HEADERS)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return resp.read()
+        except Exception as e:
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(5 * (attempt + 1))  # 5s, 10s backoff
+    raise last_err
 
 
 def http_get_json(url: str, timeout: int = 30):
