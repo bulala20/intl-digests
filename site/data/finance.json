@@ -4,17 +4,17 @@
   "en": "Global Finance Daily",
   "date": "2026-07-16",
   "date_range": "2026.07.16（滚动近2日）",
-  "total": 52,
+  "total": 51,
   "sections": [
     {
       "zh": "股市行情",
       "en": "Stocks",
-      "count": 3
+      "count": 2
     },
     {
       "zh": "央行与货币政策",
       "en": "Central Banks",
-      "count": 11
+      "count": 10
     },
     {
       "zh": "大宗商品",
@@ -24,7 +24,7 @@
     {
       "zh": "汇率与债市",
       "en": "FX & Bonds",
-      "count": 3
+      "count": 4
     },
     {
       "zh": "要闻与机构观点",
