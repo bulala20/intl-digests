@@ -9,17 +9,17 @@
     {
       "zh": "外交与双边关系",
       "en": "Diplomacy",
-      "count": 16
+      "count": 15
     },
     {
       "zh": "国际组织与多边机制",
       "en": "Multilateral",
-      "count": 19
+      "count": 18
     },
     {
       "zh": "选举与政局",
       "en": "Elections",
-      "count": 27
+      "count": 30
     },
     {
       "zh": "冲突与安全",
@@ -29,7 +29,7 @@
     {
       "zh": "政策与治理",
       "en": "Governance",
-      "count": 9
+      "count": 8
     }
   ],
   "gradient": "linear-gradient(135deg,#111827 0%,#7f1d1d 48%,#b45309 100%)",
