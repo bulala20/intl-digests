@@ -2,24 +2,24 @@
   "name": "ai",
   "title": "AI 行业晨报",
   "en": "AI Industry Daily",
-  "date": "2026-07-17",
-  "date_range": "2026.07.11 — 07.17",
-  "total": 123,
+  "date": "2026-07-18",
+  "date_range": "2026.07.12 — 07.18",
+  "total": 124,
   "sections": [
     {
       "zh": "模型发布/更新",
       "en": "Models",
-      "count": 13
+      "count": 17
     },
     {
       "zh": "产品发布/更新",
       "en": "Products",
-      "count": 31
+      "count": 27
     },
     {
       "zh": "行业动态",
       "en": "Industry",
-      "count": 26
+      "count": 25
     },
     {
       "zh": "论文研究",
@@ -29,7 +29,7 @@
     {
       "zh": "技巧与观点",
       "en": "Opinion",
-      "count": 36
+      "count": 38
     }
   ],
   "gradient": "linear-gradient(135deg,#1e1b4b 0%,#3730a3 45%,#6d28d9 100%)",
