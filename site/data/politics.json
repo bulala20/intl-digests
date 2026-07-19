@@ -2,19 +2,19 @@
   "name": "politics",
   "title": "国际政治日报",
   "en": "Global Politics Daily",
-  "date": "2026-07-18",
-  "date_range": "2026.07.18（滚动近2日）",
-  "total": 95,
+  "date": "2026-07-19",
+  "date_range": "2026.07.19（滚动近2日）",
+  "total": 92,
   "sections": [
     {
       "zh": "外交与双边关系",
       "en": "Diplomacy",
-      "count": 12
+      "count": 10
     },
     {
       "zh": "国际组织与多边机制",
       "en": "Multilateral",
-      "count": 14
+      "count": 15
     },
     {
       "zh": "选举与政局",
@@ -29,7 +29,7 @@
     {
       "zh": "政策与治理",
       "en": "Governance",
-      "count": 12
+      "count": 10
     }
   ],
   "gradient": "linear-gradient(135deg,#111827 0%,#7f1d1d 48%,#b45309 100%)",
