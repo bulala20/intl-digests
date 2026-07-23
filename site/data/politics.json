@@ -4,7 +4,7 @@
   "en": "Global Politics Daily",
   "date": "2026-07-23",
   "date_range": "2026.07.23（滚动近2日）",
-  "total": 113,
+  "total": 106,
   "sections": [
     {
       "zh": "外交与双边关系",
@@ -14,12 +14,12 @@
     {
       "zh": "国际组织与多边机制",
       "en": "Multilateral",
-      "count": 24
+      "count": 18
     },
     {
       "zh": "选举与政局",
       "en": "Elections",
-      "count": 30
+      "count": 29
     },
     {
       "zh": "冲突与安全",
