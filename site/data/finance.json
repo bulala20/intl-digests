@@ -2,24 +2,24 @@
   "name": "finance",
   "title": "国际金融日报",
   "en": "Global Finance Daily",
-  "date": "2026-07-23",
-  "date_range": "2026.07.23（滚动近2日）",
-  "total": 52,
+  "date": "2026-07-24",
+  "date_range": "2026.07.24（滚动近2日）",
+  "total": 50,
   "sections": [
     {
       "zh": "股市行情",
       "en": "Stocks",
-      "count": 3
+      "count": 2
     },
     {
       "zh": "央行与货币政策",
       "en": "Central Banks",
-      "count": 10
+      "count": 8
     },
     {
       "zh": "大宗商品",
       "en": "Commodities",
-      "count": 5
+      "count": 6
     },
     {
       "zh": "汇率与债市",
